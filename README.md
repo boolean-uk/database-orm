@@ -21,7 +21,7 @@
 
 ## Development Process
 
-1. Create one entity *or* relationship in the `prisma/schema.prisma` file
+1. Create one entity ***or*** relationship in the `prisma/schema.prisma` file
 2. Run `npx prisma generate` in your terminal to recompile the prisma client package
 3. Edit the `seed` function in the `prisma/seed.js` file to create a record for the model / relation you added in step 1
 4. Run `npx prisma migrate reset -f` to apply your schema changes to the database and run your seed code
