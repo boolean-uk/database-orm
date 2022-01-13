@@ -40,3 +40,14 @@ To work with Prisma in our development environments, we require two databases:
 3. Edit the `seed` function in the `prisma/seed.js` file to create a record for the model / relation you added in step 1.
 4. Run `npx prisma migrate reset` to apply your schema changes to the database and run your seed code.
 5. Go to your database instance in ElephantSQL, open the `Browser` section, click the `Table queries` drop-down, select the model you've been working on and click `Execute` to check that your data is being inserted correctly.
+
+## Relevant Documentation
+
+- [Defining models in the schema](https://www.prisma.io/docs/concepts/components/prisma-schema/data-model#defining-models)
+- [Defining fields (properties) on models](https://www.prisma.io/docs/concepts/components/prisma-schema/data-model#defining-fields)
+- [List of field types (e.g. String, Boolean)](https://www.prisma.io/docs/reference/api-reference/prisma-schema-reference#model-field-scalar-types)
+- [Defining attributes on fields (e.g. @id, @default, @unique)](https://www.prisma.io/docs/concepts/components/prisma-schema/data-model#defining-attributes)
+- [List of attribute types](https://www.prisma.io/docs/reference/api-reference/prisma-schema-reference#attributes)
+- [Attribute functions (e.g. autoincrement(), default())](https://www.prisma.io/docs/reference/api-reference/prisma-schema-reference#attribute-functions)
+- [Defining one-to-one relations](https://www.prisma.io/docs/concepts/components/prisma-schema/relations/one-to-one-relations)
+- [Defining one-to-many relations](https://www.prisma.io/docs/concepts/components/prisma-schema/relations/one-to-many-relations)
