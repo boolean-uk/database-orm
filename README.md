@@ -30,7 +30,7 @@ To work with Prisma in our development environments, we require two databases:
 
 ## Instructions
 
-- Follow the "Development Process" below for each individual entity, and each individual relationship, in your Entity Relationship Diagram.
+- Follow the full "Development Process" below for each individual entity, and each individual relationship, in your Entity Relationship Diagram.
 - If you want to make any changes to an existing entity, follow the process for each change you want to make.
 
 ## Development Process
