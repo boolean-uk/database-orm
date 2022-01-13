@@ -10,6 +10,8 @@ async function seed() {
 
     console.log('Customer created', createdCustomer);
 
+    // Add your code here
+
     
 
 

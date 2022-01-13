@@ -1,8 +1,9 @@
 # Databases - ORM's using Prisma.js
 
 ## Learning Objectives
-- Use an ORM to implement a database design
-- Use an ORM to create data records in a database
+- Use an ORM to implement a database design.
+- Use an ORM to create data in a database.
+- Follow an iterative development workflow style.
 
 ## Setting up
 
@@ -16,6 +17,7 @@
 ## Instructions
 
 - Follow the "Development Process" below for each individual entity, and each individual relationship.
+- If you want to make any changes to an existing entity, follow the process for each change you want to make.
 
 ## Development Process
 
