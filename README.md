@@ -19,6 +19,8 @@ To work with Prisma in our development environments, we require two databases:
 1. The *Primary* database - this is the one you have designed with your Entity Relationship Diagram and will contain all of your tables and data.
 2. The [*Shadow* database](https://www.prisma.io/docs/concepts/components/prisma-migrate/shadow-database) - this is a temporary database that Prisma uses to check that everything works properly before making any changes to the primary database. It's essentially a safety net to protect us from ourselves.
 
+**Note: Shadow databases are a concept specific to Prisma, not ORM's in general. In most cases, an ORM will execute migrations as a transaction that can be reversed if anything goes wrong. If you're interested in this subject, [here's an example](./db-transactions.md).**
+
 ## Setting up
 
 1. Create a new database instance in [ElephantSQL](https://www.elephantsql.com/).
