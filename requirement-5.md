@@ -1,4 +1,4 @@
-# Movie & Screening relationship
+# Screening & Screen
 
 ![](./assets/ScreeningScreen_Relation.PNG)
 

@@ -1,4 +1,4 @@
-# Movie & Screening relationship
+# Ticket, Customer & Screening
 
 ![](./assets/Ticket_Relation.PNG)
 
