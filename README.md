@@ -32,7 +32,7 @@ To work with Prisma in our development environments, we require two databases:
 
 ## Instructions
 
-- Work through each `requirement-x.md` file in this repository
+- Work through each file in the `requirements` directory in numerical order
 - Follow the full [Development Process](#development-process) below after completing a requirement before moving on to the next one
 - If you want to make any changes to an existing entity, follow the development process for each change you want to make.
 

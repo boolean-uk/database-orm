@@ -1,6 +1,6 @@
 # Customer & Contact
 
-![](./assets/CustomerContact_NoRelation.PNG)
+![](../assets/CustomerContact_NoRelation.PNG)
 
 The `Customer` model has already been created for you in the `prisma/schema.prisma` file to give you a working example of how to define models with properties & attributes.
 

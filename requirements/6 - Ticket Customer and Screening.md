@@ -1,6 +1,6 @@
 # Ticket, Customer & Screening
 
-![](./assets/Ticket_Relation.PNG)
+![](../assets/Ticket_Relation.PNG)
 
 ## Instructions
 

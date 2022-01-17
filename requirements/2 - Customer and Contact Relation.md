@@ -1,6 +1,6 @@
 # Customer & Contact relation
 
-![](./assets/CustomerContact_Relation.PNG)
+![](../assets/CustomerContact_Relation.PNG)
 
 ## Instructions
 

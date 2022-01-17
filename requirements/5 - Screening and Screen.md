@@ -1,6 +1,6 @@
 # Screening & Screen
 
-![](./assets/ScreeningScreen_Relation.PNG)
+![](../assets/ScreeningScreen_Relation.PNG)
 
 ## Instructions
 

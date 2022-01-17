@@ -1,6 +1,6 @@
 # Movie & Screening
 
-![](./assets/MovieScreening_NoRelation.PNG)
+![](../assets/MovieScreening_NoRelation.PNG)
 
 ## Instructions
 
