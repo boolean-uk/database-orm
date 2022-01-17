@@ -14,7 +14,7 @@ If the bank manager were to run the above query, **every** record in that table 
 
 There is a way for her to check that her query is doing the right thing before she commits to it: a transaction!
 
-We define a block of SQL as a transaction by adding the `BEGIN` to the top of our query. We can rollback anything in the transaction by using the `ROLLBACK` keyword.
+We define a block of SQL as a transaction by adding the `BEGIN` keyword to the top of our query. We can rollback anything in the transaction by using the `ROLLBACK` keyword.
 
 ```sql
 BEGIN;
