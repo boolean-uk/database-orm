@@ -11,4 +11,6 @@ Every time we run `npx prisma migrate reset`, prisma will go through these steps
 2. Runs each migration in sequence to recreate the database structure
 3. Runs the seed file in this project to populate the database with the data you define in that file
 
-This process makes sure you have an up to date database structure and collection of data to work with.
+This process ensures you have an up-to-date database structure and collection of data to work with.
+
+Let's use the example of an Amazon developer joining their team; how much time and effort would it take if every new developer had to manually create a database before they could start working on the project? With migrations, they can simply run a command to create the database for them.
