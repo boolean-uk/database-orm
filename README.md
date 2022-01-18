@@ -19,7 +19,7 @@ To work with Prisma in our development environments, we require two databases:
 1. The *Primary* database - this is the one you have designed with your Entity Relationship Diagram and will contain all of your tables and data.
 2. The [*Shadow* database](https://www.prisma.io/docs/concepts/components/prisma-migrate/shadow-database) - this is a temporary database that Prisma uses to check that everything works properly before making any changes to the primary database. It's essentially a safety net to protect us from ourselves.
 
-**Note: Shadow databases are a concept specific to Prisma, not ORM's in general. In most cases, an ORM will execute migrations as a transaction that can be reversed if anything goes wrong. If you're interested in this subject, [here's an example](./db-transactions.md).**
+**Note: Shadow databases are a concept specific to Prisma, not ORM's in general. In most cases, an ORM will execute migrations as a transaction that can be reversed if anything goes wrong. If you're interested in this subject, [here's an example](./resources/db-transactions.md).**
 
 ## Setting up
 
@@ -40,12 +40,12 @@ To work with Prisma in our development environments, we require two databases:
 
 1. Work through the instructions of a requirement
 2. Run `npx prisma generate` in your terminal to recompile the prisma client package.
-    1. [What does this command do?](./prisma-generate.md)
+    1. [What does this command do?](./resources/prisma-generate.md)
 3. Edit the `seed` function in the `prisma/seed.js` file to create a record for the model / relation you added in the first step.
     1. [How to create records](https://www.prisma.io/docs/concepts/components/prisma-client/crud#create-a-single-record)
-    2. [What is seeding?](./db-seeding.md)
+    2. [What is seeding?](./resources/db-seeding.md)
 4. Run `npx prisma migrate reset` to apply your schema changes to the database and run your seed code.
-    1. [What does this command do?](./db-migrations.md)
+    1. [What does this command do?](./resources/db-migrations.md)
 5. Go to your database instance in ElephantSQL, open the `Browser` section, click the `Table queries` drop-down, select the model you've been working on and click `Execute` to check that your data is being inserted correctly.
 
 ## Collection of Useful Documentation
