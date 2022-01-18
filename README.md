@@ -40,6 +40,7 @@ To work with Prisma in our development environments, we require two databases:
 
 1. Work through the instructions of a requirement
 2. Run `npx prisma generate` in your terminal to recompile the prisma client package.
+    1. [What does this command do?](./prisma-generate.md)
 3. Edit the `seed` function in the `prisma/seed.js` file to create a record for the model / relation you added in the first step.
     1. [How to create records](https://www.prisma.io/docs/concepts/components/prisma-client/crud#create-a-single-record)
     2. [What is seeding?](./db-seeding.md)
