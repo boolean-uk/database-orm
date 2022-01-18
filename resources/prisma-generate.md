@@ -1,6 +1,10 @@
 # Prisma Client Generation
 
-When you first install Prisma into your project, it'll run a generator to create a Prisma client for you to use based on your schema file.
+With Prisma, we define our database structure in the schema file. Prisma uses this file to create a Javascript object, the "Prisma Client", that we can use in our code to access the entities in our database.
+
+Whenever we make a change to our schema file, we must tell Prisma to update the Client with our changes. This is why run `npx prisma generate`.
+
+The Client Generator looks at our schema and creates a set of Javascript objects that we can then use to access the data for us.
 
 Let's imagine our schema file contains the following:
 
