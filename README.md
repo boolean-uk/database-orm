@@ -44,6 +44,7 @@ To work with Prisma in our development environments, we require two databases:
     1. [How to create records](https://www.prisma.io/docs/concepts/components/prisma-client/crud#create-a-single-record)
     2. [What is seeding?](./db-seeding.md)
 4. Run `npx prisma migrate reset` to apply your schema changes to the database and run your seed code.
+    1. [What does this command do?](./db-migrations.md)
 5. Go to your database instance in ElephantSQL, open the `Browser` section, click the `Table queries` drop-down, select the model you've been working on and click `Execute` to check that your data is being inserted correctly.
 
 ## Collection of Useful Documentation
