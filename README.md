@@ -33,20 +33,7 @@ To work with Prisma in our development environments, we require two databases:
 ## Instructions
 
 - Work through each file in the `requirements` directory in numerical order
-- Follow the full [Development Process](#development-process) below after completing a requirement before moving on to the next one
-- If you want to make any changes to an existing entity, follow the development process for each change you want to make.
-
-## Development Process
-
-1. Work through the instructions of a requirement
-2. Run `npx prisma generate` in your terminal to recompile the prisma client package.
-    1. [What does this command do?](./resources/prisma-generate.md)
-3. Edit the `seed` function in the `prisma/seed.js` file to create a record for the model / relation you added in the first step.
-    1. [How to create records](https://www.prisma.io/docs/concepts/components/prisma-client/crud#create-a-single-record)
-    2. [What is seeding?](./resources/db-seeding.md)
-4. Run `npx prisma migrate reset` to apply your schema changes to the database and run your seed code.
-    1. [What does this command do?](./resources/db-migrations.md)
-5. Go to your database instance in ElephantSQL, open the `Browser` section, click the `Table queries` drop-down, select the model you've been working on and click `Execute` to check that your data is being inserted correctly.
+- Follow the full Development Process in the requirement file before moving to the next requirement
 
 ## Collection of Useful Documentation
 
