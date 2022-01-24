@@ -9,7 +9,7 @@
 
 ## Introduction
 
-SQL is useful but it can be hard to debug and maintain, especially as an application grows in size. There are many ORM's out there for many languages, but we'll only be using [Prisma.js](https://www.prisma.io/docs/) during the Boolean course.
+SQL is useful but it can be hard to debug and maintain, especially as an application grows in size. There are many ORM's out there for many languages; we'll be using [Prisma.js](https://www.prisma.io/docs/) during the Boolean course.
 
 A vital piece of our skillset as software developers is our ability to use documentation to work with a tool we have little to no experience with. Prisma's documentation is comprehensive and easy to navigate, which is why we'll be using it to improve these skills during this module.
 
