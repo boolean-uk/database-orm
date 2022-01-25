@@ -5,7 +5,7 @@
 ## Learning Objectives
 - Use an ORM to implement a database design.
 - Use an ORM to create data in a database.
-- Follow an iterative development workflow style.
+- Follow an iterative development workflow style using documentation as a guide.
 
 ## Introduction
 
