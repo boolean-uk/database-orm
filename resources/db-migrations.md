@@ -6,7 +6,7 @@ We can think of it like a Git history for our database - every change we make to
 
 As you work through this exercise, the list of migrations will increase. Check the folder again after working through a requirement to see the migration that gets created based on your schema updates.
 
-Every time we run `npx prisma migrate reset`, prisma will go through these steps:
+Every time we run a migrate command, prisma will go through these steps:
 1. Deletes all of the data and drops every table
 2. Runs each migration in sequence to recreate the database structure
 3. Runs the seed file in this project to populate the database with the data you define in that file
