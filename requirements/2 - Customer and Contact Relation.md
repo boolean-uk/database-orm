@@ -6,7 +6,8 @@
 
 - Add the required relation between `Customer` and `Contact`. Note the additional property added to the `Contact` model.
 
-- [Use this documentation](https://www.prisma.io/docs/concepts/components/prisma-schema/relations/one-to-one-relations) as a guide.
+- [Use this documentation](https://www.prisma.io/docs/concepts/components/prisma-schema/relations/one-to-one-relations) as a guide for updating the schema.
+- [Use this documentation](https://www.prisma.io/docs/concepts/components/prisma-client/relation-queries#nested-writes) as a guide for updating the seed file.
 
 ## Development Process
 
