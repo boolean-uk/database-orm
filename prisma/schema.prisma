@@ -13,12 +13,33 @@ model Customer {
   name      String
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
+  contact Contact?
 }
 
 model Contact  {
   id Int @id @default(autoincrement())
+  customer Customer @relation(fields: [customerId], references: [id])
+  customerId Int @unique
   phone String
   email String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Movie {
+  id Int @id @default(autoincrement())
+  title String
+  runtimeMins Int
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  screenings Screening[]
+}
+
+model Screening {
+  id Int @id @default(autoincrement())
+  movie Movie? @relation(fields: [movieId], references: [id])
+  movieId Int?
+  startsAt DateTime
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 }
