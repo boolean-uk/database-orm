@@ -38,12 +38,11 @@ async function seed() {
 
   const createdScreen = await prisma.screen.create({
     data: {
-      number: 1
+      number: 1,
     },
   });
 
   console.log("Screen created", createdScreen);
-
 
   const createdScreening = await prisma.screening.create({
     data: {
@@ -62,6 +61,34 @@ async function seed() {
   });
 
   console.log("Screening created", createdScreening);
+
+  const createdTicket = await prisma.ticket.createMany({
+    data: [
+      {
+        customerId: createdCustomer.id,
+        screeningId: createdScreening.id,
+      },
+      {
+        customerId: createdCustomer.id,
+        screeningId: createdScreening.id,
+      },
+    ],
+  });
+
+  console.log("Ticket created", createdTicket);
+
+  //   const createdTicket2 = await prisma.ticket.create({
+  //     data: {
+  //       customer: {
+  //         connect: { id: createdCustomer.id },
+  //       },
+  //       screening: {
+  //         connect: { id: createdScreening.id },
+  //       },
+  //     },
+  //   });
+
+  //   console.log("Ticket2 created", createdTicket2);
 
   // Don't edit any of the code below this line
   process.exit(0);
