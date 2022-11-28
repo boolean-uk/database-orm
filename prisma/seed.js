@@ -27,16 +27,17 @@ async function seed() {
     },
   });
 
+  const screen = await prisma.screen.create({
+    data: {
+      number: 2,
+    },
+  });
+
   const screening = await prisma.screening.create({
     data: {
       startsAt: new Date(),
       movieId: 1,
-    },
-  });
-
-  const screen = await prisma.screen.create({
-    data: {
-      number: 2,
+      screenId: 1,
     },
   });
 
