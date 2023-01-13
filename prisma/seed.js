@@ -30,7 +30,7 @@ async function seed() {
     },
   });
 
-  const createScreening = await prisma.screening.create({
+  const createdScreening = await prisma.screening.create({
     data: {
       startAt: "2023-01-13T11:42:42.359Z",
       movie: {
@@ -41,6 +41,16 @@ async function seed() {
     },
   });
 
+  const createdScreen = await prisma.screen.create({
+    data: {
+      number: 1,
+      screening: {
+        connect: {
+          id: createdScreening.id,
+        },
+      },
+    },
+  });
   // Don't edit any of the code below this line
   process.exit(0);
 }
