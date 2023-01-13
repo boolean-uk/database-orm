@@ -46,6 +46,28 @@ async function seed() {
   const createdScreening = await prisma.screening.create({
     data: {
       startsAt: 1500,
+      movie: {
+        connect: {
+          id: createdMovie.id,
+        },
+      },
+    },
+  });
+
+  const createMovieWithScreenings = await prisma.movie.create({
+    data: {
+      title: "Scarface",
+      runtimeMins: 170,
+      screenings: {
+        create: [
+          {
+            startsAt: 2000,
+          },
+          {
+            startsAt: 1800,
+          },
+        ],
+      },
     },
   });
 
