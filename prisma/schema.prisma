@@ -25,3 +25,18 @@ model Contact {
   customer    Customer @relation(fields: [customerId], references: [id])
   customerId    Int @unique
 }
+
+model Movie {
+  id          Int   @id @default(autoincrement())
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  runtimeMins Int
+  title       String
+}
+
+model Screening {
+  id          Int   @id @default(autoincrement())
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  startsAt    Int
+}
