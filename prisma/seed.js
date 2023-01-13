@@ -23,6 +23,19 @@ async function seed() {
     },
   });
 
+  const createMovie = await prisma.movie.create({
+    data: {
+      title: "Avatar 2",
+      runTimeMins: 200,
+    },
+  });
+
+  const createScreening = await prisma.screening.create({
+    data: {
+      startAt: "2023-01-13T11:42:42.359Z",
+    },
+  });
+
   // Don't edit any of the code below this line
   process.exit(0);
 }
