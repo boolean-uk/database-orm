@@ -15,13 +15,24 @@ async function seed() {
 	const createdContact = await prisma.contact.create({
 		data: {
 			phone: "07231234124",
-			email: "example@email.com",
+			email: "Alice@email.com",
 			customer: {
-				create: [{ name: "Bob Tables" }],
+				connect: {
+					id: createdCustomer.id,
+				},
 			},
 		},
-		include: {
-			customer: true, // Include all customers in the returned object
+	});
+
+	const createCustomerWithContact = await prisma.customer.create({
+		data: {
+			name: "Bob Tables",
+			contact: {
+				create: {
+					phone: "07876543210",
+					email: "bob@tables.com",
+				},
+			},
 		},
 	});
 
