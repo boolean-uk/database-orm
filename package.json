@@ -4,7 +4,7 @@
   "description": "",
   "main": "src/index.js",
   "scripts": {
-    "start": ""
+    "test": "npx prisma generate && jest"
   },
   "prisma": {
     "seed": "node prisma/seed.js"
@@ -21,7 +21,10 @@
   },
   "homepage": "https://github.com/boolean-uk/database-orm#readme",
   "dependencies": {
-    "prisma": "^4.9.0",
-    "@prisma/client": "^4.9.0"
+    "@prisma/client": "^4.9.0",
+    "prisma": "^4.9.0"
+  },
+  "devDependencies": {
+    "jest": "^29.4.2"
   }
 }
