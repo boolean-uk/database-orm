@@ -12,7 +12,7 @@ describe('The Screening Model', () => {
 
   it('has all of the necessary fields (columns)', () => {
     // GIVEN
-    const expectedFields = generateSortedFields(['startsAt']);
+    const expectedFields = generateSortedFields(['startsAt', 'movieId', 'movie']);
     const actualFields = getModelSortedFields(SCREENING);
 
     // THEN
@@ -25,6 +25,8 @@ describe('The Screening Model', () => {
     const expectedFieldStructures = {
       ...commonFieldStructures,
       startsAt: generateFieldStructure('DateTime', false, true, undefined),
+      movieId: generateFieldStructure('Int', false, true, undefined),
+      movie: generateFieldStructure('Movie', false, true, undefined),
     };
     const actualFieldStructures = getModelFieldsStructure(SCREENING);
 
