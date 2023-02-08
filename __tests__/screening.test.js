@@ -24,9 +24,9 @@ describe('The Screening Model', () => {
     const commonFieldStructures = generateCommonFieldStructures();
     const expectedFieldStructures = {
       ...commonFieldStructures,
-      startsAt: generateFieldStructure('DateTime', false, true, undefined),
-      movieId: generateFieldStructure('Int', false, true, undefined),
-      movie: generateFieldStructure('Movie', false, true, undefined),
+      startsAt: generateFieldStructure('DateTime', false, true),
+      movieId: generateFieldStructure('Int', false, true),
+      movie: generateFieldStructure('Movie', false, true, undefined, ['movieId'], ['id']),
     };
     const actualFieldStructures = getModelFieldsStructure(SCREENING);
 

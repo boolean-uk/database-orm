@@ -12,7 +12,7 @@ describe('The Movie Model', () => {
 
   it('has all of the necessary fields (columns)', () => {
     // GIVEN
-    const expectedFields = generateSortedFields(['title', 'runtimeMins', 'screening']);
+    const expectedFields = generateSortedFields(['title', 'runtimeMins', 'screenings']);
     const actualFields = getModelSortedFields(MOVIE);
 
     // THEN
@@ -24,9 +24,9 @@ describe('The Movie Model', () => {
     const commonFieldStructures = generateCommonFieldStructures();
     const expectedFieldStructures = {
       ...commonFieldStructures,
-      title: generateFieldStructure('String', false, true, undefined),
-      runtimeMins: generateFieldStructure('Int', false, true, undefined),
-      screening: generateFieldStructure('Screening', false, false, undefined),
+      title: generateFieldStructure('String', false, true),
+      runtimeMins: generateFieldStructure('Int', false, true),
+      screenings: generateFieldStructure('Screening', false, true, undefined, [], [], true),
     };
     const actualFieldStructures = getModelFieldsStructure(MOVIE);
 

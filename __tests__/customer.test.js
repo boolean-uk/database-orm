@@ -24,8 +24,8 @@ describe('The Customer Model', () => {
     const commonFieldStructures = generateCommonFieldStructures();
     const expectedFieldStructures = {
       ...commonFieldStructures,
-      name: generateFieldStructure('String', false, true, undefined),
-      contact: generateFieldStructure('Contact', false, false, undefined),
+      name: generateFieldStructure('String', false, true),
+      contact: generateFieldStructure('Contact', false, false, undefined, [], []),
     };
     const actualFieldStructures = getModelFieldsStructure(CUSTOMER);
 

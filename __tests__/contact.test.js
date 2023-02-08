@@ -24,10 +24,10 @@ describe('The Contact Model', () => {
     const commonFieldStructures = generateCommonFieldStructures();
     const expectedFieldStructures = {
       ...commonFieldStructures,
-      phone: generateFieldStructure('String', false, true, undefined),
-      email: generateFieldStructure('String', false, true, undefined),
-      customerId: generateFieldStructure('Int', false, true, undefined),
-      customer: generateFieldStructure('Customer', false, true, undefined),
+      phone: generateFieldStructure('String', false, true),
+      email: generateFieldStructure('String', false, true),
+      customerId: generateFieldStructure('Int', false, true),
+      customer: generateFieldStructure('Customer', false, true, undefined, ['customerId'], ['id']),
     };
     const actualFieldStructures = getModelFieldsStructure(CONTACT);
 
