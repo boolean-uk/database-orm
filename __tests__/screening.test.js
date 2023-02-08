@@ -54,7 +54,7 @@ describe('The Screening Model', () => {
         ...commonFieldStructures,
         startsAt: generateFieldStructure('DateTime', false, true),
         movieId: generateFieldStructure('Int', false, true),
-        movie: generateFieldStructure('Movie', false, true, undefined, ['movieId'], ['id']),
+        movie: generateFieldStructure('Movie', false, true, false, undefined, ['movieId'], ['id']),
       };
       const actualFieldStructures = getModelFieldsStructure(SCREENING);
 
@@ -82,9 +82,9 @@ describe('The Screening Model', () => {
         ...commonFieldStructures,
         startsAt: generateFieldStructure('DateTime', false, true),
         movieId: generateFieldStructure('Int', false, true),
-        movie: generateFieldStructure('Movie', false, true, undefined, ['movieId'], ['id']),
+        movie: generateFieldStructure('Movie', false, true, false, undefined, ['movieId'], ['id']),
         screenId: generateFieldStructure('Int', false, true),
-        screen: generateFieldStructure('Screen', false, true, undefined, ['screenId'], ['id']),
+        screen: generateFieldStructure('Screen', false, true, false, undefined, ['screenId'], ['id']),
       };
       const actualFieldStructures = getModelFieldsStructure(SCREENING);
 
@@ -112,10 +112,10 @@ describe('The Screening Model', () => {
         ...commonFieldStructures,
         startsAt: generateFieldStructure('DateTime', false, true),
         movieId: generateFieldStructure('Int', false, true),
-        movie: generateFieldStructure('Movie', false, true, undefined, ['movieId'], ['id']),
+        movie: generateFieldStructure('Movie', false, true, false, undefined, ['movieId'], ['id']),
         screenId: generateFieldStructure('Int', false, true),
-        screen: generateFieldStructure('Screen', false, true, undefined, ['screenId'], ['id']),
-        tickets: generateFieldStructure('Ticket', false, true, undefined, [], [], true),
+        screen: generateFieldStructure('Screen', false, true,false, undefined, ['screenId'], ['id']),
+        tickets: generateFieldStructure('Ticket', false, true,false, undefined, [], [], true),
       };
       const actualFieldStructures = getModelFieldsStructure(SCREENING);
 

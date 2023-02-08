@@ -55,8 +55,8 @@ describe('The Contact Model', () => {
         ...commonFieldStructures,
         phone: generateFieldStructure('String', false, true),
         email: generateFieldStructure('String', false, true),
-        customerId: generateFieldStructure('Int', false, true),
-        customer: generateFieldStructure('Customer', false, true, undefined, ['customerId'], ['id']),
+        customerId: generateFieldStructure('Int', false, true, true),
+        customer: generateFieldStructure('Customer', false, true, false,undefined, ['customerId'], ['id']),
       };
       const actualFieldStructures = getModelFieldsStructure(CONTACT);
 

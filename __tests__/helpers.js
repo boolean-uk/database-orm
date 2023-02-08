@@ -24,6 +24,7 @@ const generateFieldStructure = (
   type,
   isId,
   isRequired,
+  isUnique = false, // is `true` for the ___Id field of 1-to-1 relations
   defaultValue = undefined,
   relationFromFields = undefined,
   relationToFields = undefined,
@@ -32,6 +33,7 @@ const generateFieldStructure = (
   type,
   isId,
   isRequired,
+  isUnique,
   defaultValue,
   relationFromFields,
   relationToFields,
@@ -39,8 +41,8 @@ const generateFieldStructure = (
 });
 
 const generateCommonFieldStructures = () => ({
-  id: generateFieldStructure('Int', true, true, { name: 'autoincrement', args: [] }),
-  createdAt: generateFieldStructure('DateTime', false, true, { name: 'now', args: []}),
+  id: generateFieldStructure('Int', true, true, false, { name: 'autoincrement', args: [] }),
+  createdAt: generateFieldStructure('DateTime', false, true, false, { name: 'now', args: []}),
   updatedAt: generateFieldStructure('DateTime', false, true),
 });
 
@@ -49,11 +51,12 @@ const getModelFieldsStructure = (modelName) => {
   const res = {};
 
   fields.map(field => {
-    const { name, type, isId, isRequired, default: defaultValue, relationFromFields, relationToFields, isList } = field;
+    const { name, type, isId, isRequired, isUnique, default: defaultValue, relationFromFields, relationToFields, isList } = field;
     res[name] = {
       type,
       isId,
       isRequired,
+      isUnique,
       defaultValue,
       relationFromFields,
       relationToFields,

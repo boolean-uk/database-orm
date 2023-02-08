@@ -55,7 +55,7 @@ describe('The Movie Model', () => {
         ...commonFieldStructures,
         title: generateFieldStructure('String', false, true),
         runtimeMins: generateFieldStructure('Int', false, true),
-        screenings: generateFieldStructure('Screening', false, true, undefined, [], [], true),
+        screenings: generateFieldStructure('Screening', false, true, false, undefined, [], [], true),
       };
       const actualFieldStructures = getModelFieldsStructure(MOVIE);
 

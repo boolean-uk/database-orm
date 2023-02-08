@@ -27,9 +27,9 @@ describe('The Ticket Model', () => {
       const expectedFieldStructures = {
         ...commonFieldStructures,
         customerId: generateFieldStructure('Int', false, true),
-        customer: generateFieldStructure('Customer', false, true, undefined, ['customerId'], ['id']),
+        customer: generateFieldStructure('Customer', false, true, false, undefined, ['customerId'], ['id']),
         screeningId: generateFieldStructure('Int', false, true),
-        screening: generateFieldStructure('Screening', false, true, undefined, ['screeningId'], ['id']),
+        screening: generateFieldStructure('Screening', false, true, false, undefined, ['screeningId'], ['id']),
       };
       const actualFieldStructures = getModelFieldsStructure(TICKET);
 

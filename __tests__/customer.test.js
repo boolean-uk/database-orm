@@ -53,7 +53,7 @@ describe('The Customer Model', () => {
       const expectedFieldStructures = {
         ...commonFieldStructures,
         name: generateFieldStructure('String', false, true),
-        contact: generateFieldStructure('Contact', false, false, undefined, [], []),
+        contact: generateFieldStructure('Contact', false, false, false, undefined, [], []),
       };
       const actualFieldStructures = getModelFieldsStructure(CUSTOMER);
 
@@ -80,8 +80,8 @@ describe('The Customer Model', () => {
       const expectedFieldStructures = {
         ...commonFieldStructures,
         name: generateFieldStructure('String', false, true),
-        contact: generateFieldStructure('Contact', false, false, undefined, [], []),
-        tickets: generateFieldStructure('Ticket', false, true, undefined, [], [], true),
+        contact: generateFieldStructure('Contact', false, false, false, undefined, [], []),
+        tickets: generateFieldStructure('Ticket', false, true, false, undefined, [], [], true),
       };
       const actualFieldStructures = getModelFieldsStructure(CUSTOMER);
 

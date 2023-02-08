@@ -27,7 +27,7 @@ describe('The Screen Model', () => {
       const expectedFieldStructures = {
         ...commonFieldStructures,
         number: generateFieldStructure('Int', false, true),
-        screenings: generateFieldStructure('Screening', false, true, undefined, [], [], true),
+        screenings: generateFieldStructure('Screening', false, true, false, undefined, [], [], true),
       };
       const actualFieldStructures = getModelFieldsStructure(SCREEN);
 
