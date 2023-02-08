@@ -9,28 +9,84 @@ const {
 const CUSTOMER = 'Customer';
 
 describe('The Customer Model', () => {
+  describe('Requirement 1', () => {
+    it('has all of the necessary fields (columns)', () => {
+      // GIVEN
+      const expectedFields = generateSortedFields(['name']);
+      const actualFields = getModelSortedFields(CUSTOMER);
 
-  it('has all of the necessary fields (columns)', () => {
-    // GIVEN
-    const expectedFields = generateSortedFields(['name', 'contact', 'tickets']);
-    const actualFields = getModelSortedFields(CUSTOMER);
+      // THEN
+      expectedFields.forEach(field => {
+        expect(actualFields).toContain(field);
+      });
+    });
 
-    // THEN
-    expect(actualFields).toEqual(expectedFields);
+    it('has fields with the correct structures', () => {
+      // GIVEN
+      const commonFieldStructures = generateCommonFieldStructures();
+      const expectedFieldStructures = {
+        ...commonFieldStructures,
+        name: generateFieldStructure('String', false, true),
+      };
+      const actualFieldStructures = getModelFieldsStructure(CUSTOMER);
+
+      // THEN
+      expect(actualFieldStructures).toMatchObject(expectedFieldStructures);
+    });
   });
 
-  it('has fields with the correct structures', () => {
-    // GIVEN
-    const commonFieldStructures = generateCommonFieldStructures();
-    const expectedFieldStructures = {
-      ...commonFieldStructures,
-      name: generateFieldStructure('String', false, true),
-      contact: generateFieldStructure('Contact', false, false, undefined, [], []),
-      tickets: generateFieldStructure('Ticket', false, true, undefined, [], [], true),
-    };
-    const actualFieldStructures = getModelFieldsStructure(CUSTOMER);
+  describe('Requirement 2', () => {
+    it('has all of the necessary fields (columns)', () => {
+      // GIVEN
+      const expectedFields = generateSortedFields(['name', 'contact']);
+      const actualFields = getModelSortedFields(CUSTOMER);
 
-    // THEN
-    expect(expectedFieldStructures).toEqual(actualFieldStructures);
+      // THEN
+      expectedFields.forEach(field => {
+        expect(actualFields).toContain(field);
+      });
+    });
+
+    it('has fields with the correct structures', () => {
+      // GIVEN
+      const commonFieldStructures = generateCommonFieldStructures();
+      const expectedFieldStructures = {
+        ...commonFieldStructures,
+        name: generateFieldStructure('String', false, true),
+        contact: generateFieldStructure('Contact', false, false, undefined, [], []),
+      };
+      const actualFieldStructures = getModelFieldsStructure(CUSTOMER);
+
+      // THEN
+      expect(actualFieldStructures).toMatchObject(expectedFieldStructures);
+    });
   });
+
+  describe('Requirement 6', () => {
+    it('has all of the necessary fields (columns)', () => {
+      // GIVEN
+      const expectedFields = generateSortedFields(['name', 'contact', 'tickets']);
+      const actualFields = getModelSortedFields(CUSTOMER);
+
+      // THEN
+      expectedFields.forEach(field => {
+        expect(actualFields).toContain(field);
+      });
+    });
+
+    it('has fields with the correct structures', () => {
+      // GIVEN
+      const commonFieldStructures = generateCommonFieldStructures();
+      const expectedFieldStructures = {
+        ...commonFieldStructures,
+        name: generateFieldStructure('String', false, true),
+        contact: generateFieldStructure('Contact', false, false, undefined, [], []),
+        tickets: generateFieldStructure('Ticket', false, true, undefined, [], [], true),
+      };
+      const actualFieldStructures = getModelFieldsStructure(CUSTOMER);
+
+      // THEN
+      expect(actualFieldStructures).toMatchObject(expectedFieldStructures);
+    });
+  })
 });
