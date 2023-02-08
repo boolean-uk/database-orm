@@ -9,28 +9,58 @@ const {
 const MOVIE = 'Movie';
 
 describe('The Movie Model', () => {
+  describe('Requirement 3', () => {
+    it('has all of the necessary fields (columns)', () => {
+      // GIVEN
+      const expectedFields = generateSortedFields(['title', 'runtimeMins']);
+      const actualFields = getModelSortedFields(MOVIE);
 
-  it('has all of the necessary fields (columns)', () => {
-    // GIVEN
-    const expectedFields = generateSortedFields(['title', 'runtimeMins', 'screenings']);
-    const actualFields = getModelSortedFields(MOVIE);
+      // THEN
+      expectedFields.forEach(field => {
+        expect(actualFields).toContain(field);
+      });
+    });
 
-    // THEN
-    expect(actualFields).toEqual(expectedFields);
+    it('has fields with the correct structures', () => {
+      // GIVEN
+      const commonFieldStructures = generateCommonFieldStructures();
+      const expectedFieldStructures = {
+        ...commonFieldStructures,
+        title: generateFieldStructure('String', false, true),
+        runtimeMins: generateFieldStructure('Int', false, true),
+      };
+      const actualFieldStructures = getModelFieldsStructure(MOVIE);
+
+      // THEN
+      expect(actualFieldStructures).toMatchObject(expectedFieldStructures);
+    });
   });
 
-  it('has fields with the correct structures', () => {
-    // GIVEN
-    const commonFieldStructures = generateCommonFieldStructures();
-    const expectedFieldStructures = {
-      ...commonFieldStructures,
-      title: generateFieldStructure('String', false, true),
-      runtimeMins: generateFieldStructure('Int', false, true),
-      screenings: generateFieldStructure('Screening', false, true, undefined, [], [], true),
-    };
-    const actualFieldStructures = getModelFieldsStructure(MOVIE);
+  describe('Requirement 4', () => {
+    it('has all of the necessary fields (columns)', () => {
+      // GIVEN
+      const expectedFields = generateSortedFields(['title', 'runtimeMins', 'screenings']);
+      const actualFields = getModelSortedFields(MOVIE);
 
-    // THEN
-    expect(expectedFieldStructures).toEqual(actualFieldStructures);
+      // THEN
+      expectedFields.forEach(field => {
+        expect(actualFields).toContain(field);
+      });
+    });
+
+    it('has fields with the correct structures', () => {
+      // GIVEN
+      const commonFieldStructures = generateCommonFieldStructures();
+      const expectedFieldStructures = {
+        ...commonFieldStructures,
+        title: generateFieldStructure('String', false, true),
+        runtimeMins: generateFieldStructure('Int', false, true),
+        screenings: generateFieldStructure('Screening', false, true, undefined, [], [], true),
+      };
+      const actualFieldStructures = getModelFieldsStructure(MOVIE);
+
+      // THEN
+      expect(actualFieldStructures).toMatchObject(expectedFieldStructures);
+    });
   });
 });
