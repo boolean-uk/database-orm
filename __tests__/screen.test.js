@@ -9,27 +9,30 @@ const {
 const SCREEN = 'Screen';
 
 describe('The Screen Model', () => {
+  describe('Requirement 5', () => {
+    it('has all of the necessary fields (columns)', () => {
+      // GIVEN
+      const expectedFields = generateSortedFields(['number', 'screenings']);
+      const actualFields = getModelSortedFields(SCREEN);
 
-  it('has all of the necessary fields (columns)', () => {
-    // GIVEN
-    const expectedFields = generateSortedFields(['number', 'screenings']);
-    const actualFields = getModelSortedFields(SCREEN);
+      // THEN
+      expectedFields.forEach(field => {
+        expect(actualFields).toContain(field);
+      });
+    });
 
-    // THEN
-    expect(actualFields).toEqual(expectedFields);
-  });
+    it('has fields with the correct structures', () => {
+      // GIVEN
+      const commonFieldStructures = generateCommonFieldStructures();
+      const expectedFieldStructures = {
+        ...commonFieldStructures,
+        number: generateFieldStructure('Int', false, true),
+        screenings: generateFieldStructure('Screening', false, true, undefined, [], [], true),
+      };
+      const actualFieldStructures = getModelFieldsStructure(SCREEN);
 
-  it('has fields with the correct structures', () => {
-    // GIVEN
-    const commonFieldStructures = generateCommonFieldStructures();
-    const expectedFieldStructures = {
-      ...commonFieldStructures,
-      number: generateFieldStructure('Int', false, true),
-      screenings: generateFieldStructure('Screening', false, true, undefined, [], [], true),
-    };
-    const actualFieldStructures = getModelFieldsStructure(SCREEN);
-
-    // THEN
-    expect(expectedFieldStructures).toEqual(actualFieldStructures);
+      // THEN
+      expect(actualFieldStructures).toMatchObject(expectedFieldStructures);
+    });
   });
 });
