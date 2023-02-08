@@ -12,7 +12,7 @@ describe('The Customer Model', () => {
 
   it('has all of the necessary fields (columns)', () => {
     // GIVEN
-    const expectedFields = generateSortedFields(['name', 'contact']);
+    const expectedFields = generateSortedFields(['name', 'contact', 'tickets']);
     const actualFields = getModelSortedFields(CUSTOMER);
 
     // THEN
@@ -26,6 +26,7 @@ describe('The Customer Model', () => {
       ...commonFieldStructures,
       name: generateFieldStructure('String', false, true),
       contact: generateFieldStructure('Contact', false, false, undefined, [], []),
+      tickets: generateFieldStructure('Ticket', false, true, undefined, [], [], true),
     };
     const actualFieldStructures = getModelFieldsStructure(CUSTOMER);
 
