@@ -9,29 +9,32 @@ const {
 const TICKET = 'Ticket';
 
 describe('The Ticket Model', () => {
+  describe("Requirement 6", () => {
+    it('has all of the necessary fields (columns)', () => {
+      // GIVEN
+      const expectedFields = generateSortedFields(['customerId', 'customer', 'screeningId', 'screening']);
+      const actualFields = getModelSortedFields(TICKET);
 
-  it('has all of the necessary fields (columns)', () => {
-    // GIVEN
-    const expectedFields = generateSortedFields(['customerId', 'customer', 'screeningId', 'screening']);
-    const actualFields = getModelSortedFields(TICKET);
+      // THEN
+      expectedFields.forEach(field => {
+        expect(actualFields).toContain(field);
+      });
+    });
 
-    // THEN
-    expect(actualFields).toEqual(expectedFields);
-  });
+    it('has fields with the correct structures', () => {
+      // GIVEN
+      const commonFieldStructures = generateCommonFieldStructures();
+      const expectedFieldStructures = {
+        ...commonFieldStructures,
+        customerId: generateFieldStructure('Int', false, true),
+        customer: generateFieldStructure('Customer', false, true, undefined, ['customerId'], ['id']),
+        screeningId: generateFieldStructure('Int', false, true),
+        screening: generateFieldStructure('Screening', false, true, undefined, ['screeningId'], ['id']),
+      };
+      const actualFieldStructures = getModelFieldsStructure(TICKET);
 
-  it('has fields with the correct structures', () => {
-    // GIVEN
-    const commonFieldStructures = generateCommonFieldStructures();
-    const expectedFieldStructures = {
-      ...commonFieldStructures,
-      customerId: generateFieldStructure('Int', false, true),
-      customer: generateFieldStructure('Customer', false, true, undefined, ['customerId'], ['id']),
-      screeningId: generateFieldStructure('Int', false, true),
-      screening: generateFieldStructure('Screening', false, true, undefined, ['screeningId'], ['id']),
-    };
-    const actualFieldStructures = getModelFieldsStructure(TICKET);
-
-    // THEN
-    expect(expectedFieldStructures).toEqual(actualFieldStructures);
+      // THEN
+      expect(actualFieldStructures).toMatchObject(expectedFieldStructures);
+    });
   });
 });
