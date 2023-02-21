@@ -46,10 +46,11 @@ Requirement stages as the models will evolve as you progress.
 - To run tests for a given requirement, run `npm run test:<number>` where `<number>` is replaced by the requirement 
   number you want to test. 
   - For example, to test **Requirement 2**, you would run `npm run test:2`.
-- To run all tests, run `npm run test:all`. 
+  - > IMPORTANT NOTE - you **must** have the `run` keyword for these npm scripts to be able to execute.
+
+- To run all tests, run `npm test`. 
   - It is especially important that you run this at the end when you have finished all requirements to ensure that all 
     previous requirements are still passing.
-> IMPORTANT NOTE - you **must** have the `run` keyword for these npm scripts to be able to execute.
 
 ## Collection of Useful Documentation
 
