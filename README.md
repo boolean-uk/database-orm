@@ -39,6 +39,19 @@ There are a few steps to getting set up for this exercise due to having to confi
 - Work through each file in the `requirements` directory in numerical order
 - Follow the full Development Process in the requirement file before moving to the next requirement
 
+## Tests
+There are Jest tests for each of the requirements to ensure that the models you are creating are correct / as we 
+expect. The tests are arranged by each of the models, and within each model they are split out by their relevant 
+Requirement stages as the models will evolve as you progress.
+- To run tests for a given requirement, run `npm run test:<number>` where `<number>` is replaced by the requirement 
+  number you want to test. 
+  - For example, to test **Requirement 2**, you would run `npm run test:2`.
+  - > IMPORTANT NOTE - you **must** have the `run` keyword for these npm scripts to be able to execute.
+
+- To run all tests, run `npm test`. 
+  - It is especially important that you run this at the end when you have finished all requirements to ensure that all 
+    previous requirements are still passing.
+
 ## Collection of Useful Documentation
 
 - [Defining models in the schema](https://www.prisma.io/docs/concepts/components/prisma-schema/data-model#defining-models)
