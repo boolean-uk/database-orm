@@ -1,0 +1,2 @@
+-- AlterTable
+ALTER TABLE "Screening" ALTER COLUMN "startsAt" SET DEFAULT CURRENT_TIMESTAMP;
