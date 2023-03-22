@@ -4,10 +4,10 @@ const prisma = new PrismaClient();
 async function seed() {
   const createdCustomer = await prisma.customer.create({
     data: {
-      name: "Fiona",
+      name: "Dragon",
       contact: {
         create: {
-          email: "test@jack.com",
+          email: "dragon@jack.com",
           phone: "+44123123123",
         },
       },
@@ -22,7 +22,7 @@ async function seed() {
   // Add your code here
   const createdScreen = await prisma.screen.create({
     data: {
-      number: 5,
+      number: 16,
     },
   });
 
@@ -30,12 +30,12 @@ async function seed() {
 
   const createdMovie = await prisma.movie.create({
     data: {
-      title: "Shrek the Third",
-      runtimeMins: 215,
+      title: "Moana",
+      runtimeMins: 125,
       screening: {
         create: [
           {
-            startsAt: new Date("2023-03-23 09:00:00"),
+            startsAt: new Date("2023-03-24 09:00:00"),
             screen: { connect: { id: createdScreen.id } },
           },
         ],
@@ -46,6 +46,14 @@ async function seed() {
     },
   });
   console.log("Movie created", createdMovie);
+
+  const createdTicket = await prisma.ticket.create({
+    data: {
+      customer: { connect: { id: 1 } },
+      screening: { connect: { id: 1 } },
+    },
+  });
+  console.log("Movie created", createdTicket);
 
   // Don't edit any of the code below this line
   process.exit(0);
