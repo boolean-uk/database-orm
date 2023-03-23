@@ -4,7 +4,7 @@
   "description": "",
   "main": "src/index.js",
   "scripts": {
-    "test": "npx prisma generate && jest",
+    "test": "npx prisma generate && npx jest",
     "test:1": "npx prisma generate && npx jest -t \"Requirement 1\"",
     "test:2": "npx prisma generate && npx jest -t \"Requirement 2\"",
     "test:3": "npx prisma generate && npx jest -t \"Requirement 3\"",
