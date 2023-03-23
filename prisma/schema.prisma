@@ -39,7 +39,7 @@ model Movie {
 model Screening {
   id          Int      @id @default(autoincrement())
   movie       Movie @relation(fields: [movieId], references :[id])
-  movieId     Int @unique
+  movieId     Int 
   startsAt    DateTime
   screen      Screen @relation(fields: [screenId], references: [id])
   screenId    Int 
@@ -59,9 +59,9 @@ model Screen {
 model Ticket {
   id          Int      @id @default(autoincrement())
   customer    Customer @relation(fields: [customerId], references: [id])
-  customerId  Int @unique
-  screenings  Screening @relation(fields: [screeningId], references:[id])
-  screeningId Int @unique
+  customerId  Int 
+  screening  Screening @relation(fields: [screeningId], references:[id])
+  screeningId Int 
   createdAt   DateTime @default(now())
   updatedAt   DateTime @updatedAt
 }
