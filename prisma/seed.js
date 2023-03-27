@@ -15,6 +15,7 @@ async function seed() {
   //   },
   // });
   // console.log("Customer created", createdTicket);
+  // Could this code be used in another implementation?
 
   const createdCustomer = await prisma.customer.create({
     data: {
