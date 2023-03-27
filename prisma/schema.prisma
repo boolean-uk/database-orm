@@ -12,6 +12,7 @@ model Customer {
   id        Int      @id @default(autoincrement())
   name      String
   contact   Contact?
+  tickets   Ticket[]
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 }
@@ -21,7 +22,7 @@ model Contact {
   customer     Customer @relation(fields: [customerId], references: [id])
   customerId   Int      @unique
   phone        String
-  email        String
+  email        String  
   createdAt    DateTime @default(now())
   updatedAt    DateTime @updatedAt
 }
@@ -42,6 +43,7 @@ model Screening {
   screen       Screen   @relation(fields: [screenId], references: [id])
   screenId     Int      
   startsAt     DateTime
+  tickets      Ticket[]
   createdAt    DateTime @default(now())
   updatedAt    DateTime @updatedAt 
 }
@@ -54,3 +56,12 @@ model Screen {
   updatedAt    DateTime @updatedAt 
 }
 
+model Ticket {
+  id           Int      @id @default(autoincrement())
+  customer     Customer @relation(fields:[customerId], references: [id])
+  customerId   Int
+  screening    Screening @relation(fields:[screeningId], references: [id])
+  screeningId  Int
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt 
+}
