@@ -30,7 +30,7 @@ model Movie {
   id           Int      @id @default(autoincrement())
   title        String
   runtimeMins  Int
-  screening    Screening[]
+  screenings   Screening[]
   createdAt    DateTime @default(now())
   updatedAt    DateTime @updatedAt 
 }

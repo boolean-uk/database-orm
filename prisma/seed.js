@@ -19,12 +19,8 @@ async function seed() {
     data: {
       title: "Alice in Wonderland",
       runtimeMins: 108,
-      screening: {
-        create: [
-          { startsAt: new Date("2023-12-31 13:00:00") },
-          { startsAt: new Date("2023-12-31 13:30:00") },
-          { startsAt: new Date("2023-12-31 14:55:00") },
-        ],
+      screenings: {
+        create: { startsAt: new Date("2023-12-31 13:00:00") },
       },
     },
   });
