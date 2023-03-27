@@ -12,26 +12,45 @@ async function seed() {
         },
       },
     },
+    include: {
+      contact: true,
+    },
   });
   console.log("Customer created", createdCustomer);
+
+  const createdScreen = await prisma.screen.create({
+    data: {
+      number: 1,
+    },
+  });
+  console.log("Customer created", createdScreen);
 
   const createdMovie = await prisma.movie.create({
     data: {
       title: "Alice in Wonderland",
       runtimeMins: 108,
       screenings: {
-        create: { startsAt: new Date("2023-12-31 13:00:00") },
+        create: [
+          {
+            startsAt: new Date("2023-12-31 13:00:00"),
+            screen: { connect: { id: createdScreen.id } },
+          },
+          {
+            startsAt: new Date("2023-12-31 13:30:00"),
+            screen: { connect: { id: createdScreen.id } },
+          },
+          {
+            startsAt: new Date("2023-12-31 14:55:00"),
+            screen: { connect: { id: createdScreen.id } },
+          },
+        ],
       },
+    },
+    include: {
+      screenings: true,
     },
   });
   console.log("Movie created", createdMovie);
-
-  // const createdScreening = await prisma.screening.create({
-  //   data: {
-  //     startsAt: new Date("2023-12-31 13:00:00"),
-  //   },
-  // });
-  // console.log("Screening created", createdScreening);
 
   // Don't edit any of the code below this line
   process.exit(0);
