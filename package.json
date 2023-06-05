@@ -28,7 +28,7 @@
   "homepage": "https://github.com/boolean-uk/database-orm#readme",
   "dependencies": {
     "@prisma/client": "^4.9.0",
-    "prisma": "^4.9.0"
+    "prisma": "^4.15.0"
   },
   "devDependencies": {
     "jest": "^29.4.2"
