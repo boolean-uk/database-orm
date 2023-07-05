@@ -1,16 +1,58 @@
+// Generator: Indicates that you want to generate Prisma Client
 generator client {
   provider = "prisma-client-js"
 }
 
+// Data source: Specifies your database connection (via an environment variable)
 datasource db {
-  provider          = "postgresql"
-  url               = env("DATABASE_URL")
+  provider = "postgresql"
+  url = env("DATABASE_URL")
   shadowDatabaseUrl = env("SHADOW_DATABASE_URL")
 }
 
+// Data model: Defines your application models
 model Customer {
-  id        Int      @id @default(autoincrement())
-  name      String
+  id Int @id @default(autoincrement())
+  name String
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
+  contact Contact?
+}
+
+model Contact {
+  id Int @id @default(autoincrement())
+  phone String
+  email String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  customer_id Int @unique
+  customer Customer @relation(fields: [customer_id], references: [id])
+}
+
+model Movie {
+  id Int @id @default(autoincrement())
+  title String
+  runtimeMins Int
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  screens Screening[]
+}
+
+model Screen {
+  id Int @id @default(autoincrement())
+  number Int
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  screens Screening[]
+}
+
+model Screening {
+  id Int @id @default(autoincrement())
+  startAt DateTime
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  movieId Int
+  movie Movie @relation(fields: [movieId], references: [id])
+  screenId Int
+  screen Screen @relation(fields: [screenId], references: [id])
 }

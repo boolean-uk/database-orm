@@ -3,6 +3,7 @@
 > An object-relational mapper provides a layer between relational databases and programming languages without the need to write SQL. It standardizes interfaces, reducing boilerplate while speeding up development time. With the Prisma.js ORM, we can interact with our database by writing Javascript instead of executing SQL.
 
 ## Learning Objectives
+
 - Use an ORM to implement a database design.
 - Use an ORM to create data in a database.
 - Follow an iterative development workflow style using documentation as a guide.
@@ -16,8 +17,9 @@ A vital piece of our skillset as software developers is our ability to use docum
 Though not required, you may find it useful to [read about Prisma's core concepts](https://www.prisma.io/docs/concepts/overview/what-is-prisma).
 
 To work with Prisma in our development environments, we require two databases:
-1. The *Primary* database - this is the one you have designed with your Entity Relationship Diagram and will contain all of your tables and data.
-2. The [*Shadow* database](https://www.prisma.io/docs/concepts/components/prisma-migrate/shadow-database) - this is a temporary database that Prisma uses to check that everything works properly before making any changes to the primary database. It's essentially a safety net to protect us from ourselves.
+
+1. The _Primary_ database - this is the one you have designed with your Entity Relationship Diagram and will contain all of your tables and data.
+2. The [_Shadow_ database](https://www.prisma.io/docs/concepts/components/prisma-migrate/shadow-database) - this is a temporary database that Prisma uses to check that everything works properly before making any changes to the primary database. It's essentially a safety net to protect us from ourselves.
 
 **Note: Shadow databases are a concept specific to Prisma, not ORM's in general. In most cases, an ORM will execute migrations as a transaction that can be reversed if anything goes wrong. If you're interested in this subject, [here's an example](./resources/db-transactions.md).**
 
@@ -40,16 +42,19 @@ There are a few steps to getting set up for this exercise due to having to confi
 - Follow the full Development Process in the requirement file before moving to the next requirement
 
 ## Tests
-There are Jest tests for each of the requirements to ensure that the models you are creating are correct / as we 
-expect. The tests are arranged by each of the models, and within each model they are split out by their relevant 
+
+There are Jest tests for each of the requirements to ensure that the models you are creating are correct / as we
+expect. The tests are arranged by each of the models, and within each model they are split out by their relevant
 Requirement stages as the models will evolve as you progress.
-- To run tests for a given requirement, run `npm run test:<number>` where `<number>` is replaced by the requirement 
-  number you want to test. 
+
+- To run tests for a given requirement, run `npm run test:<number>` where `<number>` is replaced by the requirement
+  number you want to test.
+
   - For example, to test **Requirement 2**, you would run `npm run test:2`.
   - > IMPORTANT NOTE - you **must** have the `run` keyword for these npm scripts to be able to execute.
 
-- To run all tests, run `npm test`. 
-  - It is especially important that you run this at the end when you have finished all requirements to ensure that all 
+- To run all tests, run `npm test`.
+  - It is especially important that you run this at the end when you have finished all requirements to ensure that all
     previous requirements are still passing.
 
 ## Collection of Useful Documentation
