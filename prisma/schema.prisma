@@ -37,7 +37,7 @@ model Movie {
 
 model Screening {
   id        Int      @id @default(autoincrement())
-  startsAt  DateTime @default(now())
+  startsAt  DateTime 
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
   movie_id  Int      
