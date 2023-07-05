@@ -19,8 +19,6 @@ async function seed() {
         }
     })
 
-
-
     // Don't edit any of the code below this line
     process.exit(0);
 }
