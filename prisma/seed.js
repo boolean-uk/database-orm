@@ -29,6 +29,19 @@ async function seed() {
         }
     })
 
+    const createdMovie = await prisma.movie.create({
+        data:{
+            title: "Die Hard",
+            runtimeMins: 12
+        }
+    })
+
+    const createdScreening = await prisma.screening.create({
+        data:{
+            startsAt: new Date(),
+        }
+    })
+
     // Don't edit any of the code below this line
     process.exit(0);
 }
