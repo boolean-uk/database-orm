@@ -38,7 +38,7 @@ async function seed() {
 
 	const createScreen = await prisma.screen.create({
 		data: {
-			number: 4,
+			number: 1,
 		},
 	})
 
@@ -47,6 +47,11 @@ async function seed() {
 	const createScreening = await prisma.screening.create({
 		data: {
 			movie: {
+				connect: {
+					id: 1,
+				},
+			},
+			screen: {
 				connect: {
 					id: 1,
 				},
