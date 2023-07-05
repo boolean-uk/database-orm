@@ -36,6 +36,12 @@ async function seed() {
         }
     })
 
+    const createdScreen = await prisma.screen.create({
+        data:{
+            number: 1
+        }
+  })
+
     const createdScreening = await prisma.screening.create({
         data:{
             startsAt: new Date(),
@@ -43,6 +49,11 @@ async function seed() {
                 connect: {
                     id: 1
                 }
+            },
+            screen: {
+              connect: {
+                    id: 1
+              }
             }
         }
     })
