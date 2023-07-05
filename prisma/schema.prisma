@@ -50,7 +50,7 @@ model Screening {
 
 model Screen {
   id         Int         @id @default(autoincrement())
-  number     Int         @unique
+  number     Int         
   createdAt  DateTime    @default(now())
   updatedAt  DateTime    @updatedAt
   screenings Screening[]
