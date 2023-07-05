@@ -10,7 +10,7 @@ datasource db {
 
 model Customer {
   id        Int      @id @default(autoincrement())
-  ticket    Ticket[]
+  tickets   Ticket[]
   name      String
   contact   Contact?
   createdAt DateTime @default(now())
@@ -29,7 +29,7 @@ model Contact {
 
 model Movie {
   id          Int         @id @default(autoincrement())
-  screening   Screening[]
+  screenings  Screening[]
   title       String
   runtimeMins Int
   createdAt   DateTime    @default(now())
@@ -42,18 +42,18 @@ model Screening {
   movieId   Int
   screen    Screen   @relation(fields: [screenId], references: [id])
   screenId  Int
-  ticket    Ticket[]
+  tickets   Ticket[]
   startsAt  DateTime
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 }
 
 model Screen {
-  id        Int         @id @default(autoincrement())
-  screening Screening[]
-  number    Int
-  createdAt DateTime    @default(now())
-  updatedAt DateTime    @updatedAt
+  id         Int         @id @default(autoincrement())
+  screenings Screening[]
+  number     Int
+  createdAt  DateTime    @default(now())
+  updatedAt  DateTime    @updatedAt
 }
 
 model Ticket {
