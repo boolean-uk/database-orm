@@ -2,57 +2,58 @@ const { PrismaClient } = require("@prisma/client");
 const prisma = new PrismaClient();
 
 async function seed() {
-  const createdCustomer = await prisma.customer.create({
+  const createdFirstContact = await prisma.contact.create({
     data: {
-      name: "Alice",
-    },
-  });
-  console.log("Customer created", createdCustomer);
-
-  const createdNewContact = await prisma.contact.create({
-    data: {
-      email: "alice@wonderland.com",
-      phone: "07766123456",
+      phone: "074352634712",
+      email: "Rahman@outlook.com",
       customer: {
-        connect: {
-          id: 1,
-        },
-      },
-    },
-  });
-  // console.log("createdContact", createdNewContact);
-
-  const creatCustomerWithContact = await prisma.customer.create({
-    data: {
-      name: "Rasheed",
-      contact: {
         create: {
-          phone: "2345123456",
-          email: "rasheed@gmail.com",
+          name: "Rahman",
         },
       },
     },
   });
-  // console.log("Customer with contact created", creatCustomerWithContact);
 
-  const createMovie = await prisma.movie.create({
+  const createdSecondContact = await prisma.contact.create({
     data: {
-      title: "Any reasonable title",
-      runtimeMins: 99,
+      phone: "07445736634712",
+      email: "muhammad@gmail.com",
+      customer: {
+        create: {
+          name: "Muhammad",
+        },
+      },
     },
   });
-  // console.log("createMovie", createMovie);
 
-  const createScreen = await prisma.screen.create({
+  const createdThirdContact = await prisma.contact.create({
+    data: {
+      phone: "98465736634712",
+      email: "Samir@yahoo.com",
+      customer: {
+        create: {
+          name: "Samir",
+        },
+      },
+    },
+  });
+
+  const createdMovie = await prisma.movie.create({
+    data: {
+      title: "Power",
+      runtimeMins: 101,
+    },
+  });
+
+  const createdScreen = await prisma.screen.create({
     data: {
       number: 9,
     },
   });
-  console.log("createScreen", createScreen);
 
-  const createScreening = await prisma.screening.create({
+  const createdScreening = await prisma.screening.create({
     data: {
-      startAt: new Date().toISOString(),
+      startsAt: new Date().toLocaleString(),
       movie: {
         connect: {
           id: 1,
@@ -65,7 +66,21 @@ async function seed() {
       },
     },
   });
-  // console.log("createScreening", createScreening);
+
+  const createdTicket = await prisma.ticket.create({
+    data: {
+      customer: {
+        connect: {
+          id: 1,
+        },
+      },
+      screening: {
+        connect: {
+          id: 1,
+        },
+      },
+    },
+  });
 
   // Don't edit any of the code below this line
   process.exit(0);
