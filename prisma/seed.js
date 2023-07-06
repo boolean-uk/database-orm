@@ -46,6 +46,7 @@ async function seed() {
 
 	const createScreening = await prisma.screening.create({
 		data: {
+			startsAt: new Date(),
 			movie: {
 				connect: {
 					id: 1,
