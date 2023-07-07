@@ -23,8 +23,8 @@ model Contact {
   email       String
   createdAt   DateTime  @default(now())
   updatedAt   DateTime  @updatedAt
-  customer_id Int       @unique
-  customer    Customer  @relation(fields: [customer_id], references: [id])
+  customerId Int       @unique
+  customer    Customer  @relation(fields: [customerId], references: [id])
 }
 
 model Movie {
@@ -58,8 +58,8 @@ model Screen {
 
 model Ticket {
   id            Int         @id @default(autoincrement())
-  customerid    Int
-  customer      Customer    @relation(fields: [customerid], references: [id])
+  customerId    Int
+  customer      Customer    @relation(fields: [customerId], references: [id])
   screeningId   Int
   screening     Screening   @relation(fields: [screeningId], references: [id])
   createdAt     DateTime    @default(now())
