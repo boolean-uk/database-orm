@@ -1,9 +1,9 @@
-const { dmmf } = require('@prisma/client');
+const { Prisma } = require('@prisma/client');
 
 const COMMON_FIELDS = ['id', 'createdAt', 'updatedAt'];
 
 const getModelNames = () => {
-  return dmmf.datamodel.models.map(model => model.name);
+  return Prisma.dmmf.datamodel.models.map(model => model.name);
 };
 
 const generateSortedFields = (fields) => {
@@ -11,7 +11,7 @@ const generateSortedFields = (fields) => {
 };
 
 const getModelFields = (modelName) => {
-  return dmmf.datamodel.models.filter(model => model.name === modelName)[0].fields;
+  return Prisma.dmmf.datamodel.models.filter(model => model.name === modelName)[0].fields;
 };
 
 const getModelSortedFields = (modelName) => {
