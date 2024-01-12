@@ -26,6 +26,29 @@ async function seed() {
 
   console.log("Contact created", createdContact);
 
+  const createdCustomerWithContact = await prisma.customer.create({
+    data: {
+      name: "John",
+      contact: {
+        create: {
+          phone: "+4407987654321",
+          email: "johndoeisking@email.com",
+        },
+      },
+    },
+  });
+
+  console.log("Customer with contact created", createdCustomerWithContact);
+
+  const createdMovie = await prisma.movie.create({
+    data: {
+      title: "The awakening",
+      runtimeMins: 173,
+    },
+  });
+
+  console.log("Movie created", createdMovie);
+
   // Don't edit any of the code below this line
   process.exit(0);
 }
