@@ -11,7 +11,8 @@
     "test:4": "npx prisma generate && npx jest -t \"Requirement 4\"",
     "test:5": "npx prisma generate && npx jest -t \"Requirement 5\"",
     "test:6": "npx prisma generate && npx jest -t \"Requirement 6\"",
-    "db:reset": "npx prisma migrate reset"
+    "db:reset": "npx prisma migrate reset",
+    "db:watchSchema": "npx prisma generate --watch" 
   },
   "prisma": {
     "seed": "node prisma/seed.js"
