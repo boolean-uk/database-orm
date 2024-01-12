@@ -23,7 +23,7 @@ async function seed() {
         }
     })
 
-    console.log(createdCustomer)
+    console.log(createdContact)
 
     // Don't edit any of the code below this line
     process.exit(0);
