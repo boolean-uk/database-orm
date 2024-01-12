@@ -38,13 +38,29 @@ async function seed() {
 
   const createdShowing = await prisma.screening.create({
     data: {
-      startsAt: "2001-12-10T20:00:00Z"
+      startsAt: "2001-12-10T20:00:00Z",
+      movie: {
+        connect:{
+          id:1
+        }
+      }
     }
   })
 
   console.log(createdShowing)
 
+  const createdShowing2 = await prisma.screening.create({
+    data: {
+      startsAt: "2001-12-12T20:00:00Z",
+      movie: {
+        connect:{
+          id:1
+        }
+      }
+    }
+  })
 
+  console.log(createdShowing2)
 
   // Don't edit any of the code below this line
   process.exit(0);
