@@ -14,3 +14,6 @@ ALTER TABLE "Contact" ADD COLUMN "customerId" INTEGER NOT NULL;
 
 -- creating unique index on contact using customenr id 
 CREATE UNIQUE INDEX "Contact_customerId_key" ON "Contact"("customerId");
+
+-- Alter table 
+ALTER TABLE "Contact" ADD CONSTRAINT "Contact_customerId_fkey" FOREIGN KEY ("customerId") REFERENCES "Customer"("id") ON DELETE RESTRICT ON UPDATE CASCADE;
