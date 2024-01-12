@@ -17,7 +17,7 @@ model Customer {
 
 model Contact {
   id          Int       @id @default(autoincrement())
-  customerId Int       @unique 
+  customerId  Int       @unique 
   customer    Customer  @relation(fields: [customerId], references: [id])
   phone       String  
   email       String
