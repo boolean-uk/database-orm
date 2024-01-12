@@ -68,7 +68,7 @@ async function seed() {
   
     const createMovieWithScreening = await prisma.movie.create({
       data: {
-        title: 'Nemo',
+        title: 'Teeth',
         runtimeMins: 111,
         screenings: {
           create: [
