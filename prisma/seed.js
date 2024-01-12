@@ -15,6 +15,11 @@ async function seed() {
         data: {
             phone: '12506839040',
             email: 'email@email.com',
+            customer: {
+                connect: {
+                    id: 1
+                }
+            }
         }
     })
 
