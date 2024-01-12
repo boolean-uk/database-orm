@@ -28,6 +28,7 @@
   },
   "homepage": "https://github.com/boolean-uk/database-orm#readme",
   "devDependencies": {
+    "@types/jest": "^29.5.11",
     "jest": "^29.7.0",
     "prisma": "^5.7.1"
   },
