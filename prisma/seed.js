@@ -26,6 +26,15 @@ async function seed() {
 
   console.log("Created contact with customer:", createdContact);
 
+  const createdMovie = await prisma.movie.create({
+    data: {
+      title: "The Fellowship of The Ring",
+      runtimeMins: 178
+    }
+  })
+
+  console.log(createdMovie)
+
 
   // Don't edit any of the code below this line
   process.exit(0);
