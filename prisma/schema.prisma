@@ -27,15 +27,18 @@ model Contact {
 }
 
 model Movie {
-  id          Int       @id @default(autoincrement())
+  id          Int         @id @default(autoincrement())
   title       String
   runtimeMins Int
-  createdAt   DateTime  @default(now())
-  updatedAt   DateTime  @updatedAt
+  screenings  Screening[]
+  createdAt   DateTime    @default(now())
+  updatedAt   DateTime    @updatedAt
 }
 
 model Screening {
   id          Int       @id @default(autoincrement())
+  movie       Movie     @relation(fields: [movieId], references: [id])
+  movieId     Int       @unique
   startsAt    DateTime
   createdAt   DateTime  @default(now())
   updatedAt   DateTime  @updatedAt
