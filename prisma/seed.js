@@ -2,34 +2,51 @@ const { PrismaClient } = require("@prisma/client");
 const prisma = new PrismaClient();
 
 async function seed() {
-  const createdContact1 = await prisma.contact.create({
+  const testTicket = await prisma.ticket.create({
     data: {
-      phone: "12334",
-      email: "alice@email.com",
-      customer: {
+      screening: {
         create: {
-          name: "Alice",
+          startsAt: new Date("2024-01-20 13:09:00"),
+          screen: {
+            create: {
+              number: 4,
+            },
+          },
+          movie: {
+            create: {
+              title: "Ballerina",
+              runtimeMins: 170,
+            },
+          },
         },
       },
-    },
-  });
-
-  console.log("Contact 1 created", createdContact1);
-
-  const createdContact2 = await prisma.contact.create({
-    data: {
-      phone: "0118 999 881 999 119 725 3",
-      email: "moss@reynholm.co.uk",
       customer: {
         create: {
           name: "Moss",
+          contact: {
+            create: {
+              phone: "0118 999 881 999 119 725 3",
+              email: "moss@reynholm.co.uk",
+            },
+          },
+        },
+      },
+    },
+    include: {
+      screening: {
+        include: {
+          movie: true,
+        },
+      },
+      customer: {
+        include: {
+          contact: true,
         },
       },
     },
   });
 
-  console.log("Contact 2 created", createdContact2);
-
+  console.log("created testTicket", testTicket);
   // Don't edit any of the code below this line
   process.exit(0);
 }
