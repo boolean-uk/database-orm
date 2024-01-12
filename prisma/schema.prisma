@@ -44,3 +44,5 @@ model Screening {
   movie Movie @relation(fields: [movie_id], references: [id])
 }
 
+
+
