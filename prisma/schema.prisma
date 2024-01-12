@@ -22,4 +22,5 @@ model Contact {
   createdAt   DateTime @default(now())
   updatedAt   DateTime @updatedAt
   customerId  Int      @unique
+  customer    Customer @relation(fields: [customerId], references: [id])
 }
