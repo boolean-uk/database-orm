@@ -38,7 +38,7 @@ async function seed() {
 
   const createdShowing = await prisma.screening.create({
     data: {
-      startsAt: '2001-12-10 20:00:00 +0000'
+      startsAt: "2001-12-10T20:00:00Z"
     }
   })
 
