@@ -21,24 +21,41 @@ async function seed() {
     },
   });
 
-  const createMovie = await prisma.movie.createMany({
-    data:[ {
-      title: "King Kong",
-      runtimeMins: 190,
-    },
-    {
-      title: "Inception",
-      runtimeMins: 150,
-    },
-  ]
+  const movie = await prisma.movie.createMany({
+    data: [
+      {
+        title: "King Kong",
+        runtimeMins: 190,
+      },
+      {
+        title: "Inception",
+        runtimeMins: 150,
+      },
+    ],
   });
 
-  const movieCount = createMovie.length;
+  // const movieCount = createMovie.length;
 
-  const createScreen = await prisma.screening.createMany({
-    data: Array.from({ length: movieCount }, (_, index) => ({
-      startsAt: { select: { now: true } },
-    })),
+  // const screenings = await prisma.screening.createMany({
+  //   data: Array.from({ length: movieCount }, (_, index) => ({
+  //     startsAt: { select: { now: true } },
+  //     movie: {
+  //       connect: {
+  //         id: 1,
+  //       },
+  //     },
+  //   })),
+  // });
+
+  const screenings = await prisma.screening.create({
+    data: {
+      createdAt: { select: { now: true } },
+      movie: {
+        connect: {
+          id: 1,
+        },
+      },
+    },
   });
 
   // const createScreen = await prisma.screening.create({
