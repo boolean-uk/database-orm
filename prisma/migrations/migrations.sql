@@ -12,6 +12,13 @@ ALTER TABLE "Contact" ADD COLUMN "customerId" INTEGER NOT NULL;
     CONSTRAINT "Contact_pkey" PRIMARY KEY ("id")
 );
 
+CREATE TABLE "Customer" (
+    "id" SERIAL PRIMARY KEY,
+    "createdAt" TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    "updatedAt" TIMESTAMP,
+    "name" VARCHAR(255)
+);
+
 -- creating unique index on contact using customenr id 
 CREATE UNIQUE INDEX "Contact_customerId_key" ON "Contact"("customerId");
 

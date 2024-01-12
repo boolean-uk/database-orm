@@ -1,9 +1,14 @@
+datasource db {
+  provider = "postgresql"
+  url      = env("postgres://invfwpya:0Qa8r0Fu95A_RochSZoIgYnFUfYJqtse@horton.db.elephantsql.com/invfwpya")
+}
+
 model Customer {
   id        Int      @id @default(autoincrement())
   name      String
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
-   contact   Contact?
+  contact   Contact?
   tickets   Ticket[]
 }
 
