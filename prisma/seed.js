@@ -13,6 +13,11 @@ async function seed() {
     data: {
       phone: "+447745757561",
       email: "example@gmail.com",
+      customer: {
+        connect: {
+          id: 1,
+        },
+      },
     },
   });
 
