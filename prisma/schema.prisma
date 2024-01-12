@@ -14,7 +14,7 @@ model Customer {
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
   contact   Contact?
-  ticket    Ticket[]
+  tickets    Ticket[]
 }
 
 model Contact {
@@ -23,8 +23,8 @@ model Contact {
   email       String
   createdAt   DateTime @default(now())
   updatedAt   DateTime @updatedAt
-  customer_id Int      @unique
-  customer    Customer @relation(fields: [customer_id], references: [id])
+  customerId Int      @unique
+  customer    Customer @relation(fields: [customerId], references: [id])
 }
 
 model Movie {
@@ -33,7 +33,7 @@ model Movie {
   runtimeMins Int
   createdAt   DateTime    @default(now())
   updatedAt   DateTime    @updatedAt
-  screening   Screening[]
+  screenings   Screening[]
 }
 
 model Screening {
@@ -41,11 +41,11 @@ model Screening {
   startsAt  DateTime
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
-  movie_id  Int
-  movie     Movie    @relation(fields: [movie_id], references: [id])
-  screen_id Int
-  screen    Screen   @relation(fields: [screen_id], references: [id])
-  ticket    Ticket[]
+  movieId  Int
+  movie     Movie    @relation(fields: [movieId], references: [id])
+  screenId Int
+  screen    Screen   @relation(fields: [screenId], references: [id])
+  tickets    Ticket[]
 }
 
 model Screen {
@@ -53,7 +53,7 @@ model Screen {
   number    Int
   createdAt DateTime    @default(now())
   updatedAt DateTime    @updatedAt
-  screening Screening[]
+  screenings Screening[]
 }
 
 model Ticket {
