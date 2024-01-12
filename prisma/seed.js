@@ -57,7 +57,9 @@ async function seed() {
         },
       },
       screen: {
-        id: 1,
+        connect: {
+          id: 1,
+        },
       },
     },
   });
@@ -68,6 +70,11 @@ async function seed() {
     data: {
       startsAt: "2001-12-12T20:00:00Z",
       movie: {
+        connect: {
+          id: 1,
+        },
+      },
+      screen: {
         connect: {
           id: 2,
         },
@@ -83,6 +90,11 @@ async function seed() {
       movie: {
         connect: {
           id: 1,
+        },
+      },
+      screen: {
+        connect: {
+          id: 2,
         },
       },
     },
