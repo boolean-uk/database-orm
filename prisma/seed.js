@@ -50,7 +50,7 @@ async function seed() {
         }
     })
 
-    const createdTicket = await prisma.screen.create({
+    const createdTicket = await prisma.ticket.create({
         data: {
             customer: {
                 connect: {
