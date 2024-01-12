@@ -49,6 +49,41 @@ async function seed() {
 
   console.log("Movie created", createdMovie);
 
+  const createdScreen = await prisma.screen.create({
+    data: {
+      number: 1,
+    },
+  });
+
+  console.log("Created screen", createdScreen);
+
+  const createdScreening = await prisma.screening.create({
+    data: {
+      startsAt: new Date(),
+      movieId: 1,
+      screenId: 1,
+    },
+  });
+
+  console.log("Screening created", createdScreening);
+
+  const createdMovieWithScreening = await prisma.movie.create({
+    data: {
+      title: "Lion King",
+      runtimeMins: 88,
+      screenings: {
+        create: [
+          {
+            startsAt: new Date(),
+            screenId: 1,
+          },
+        ],
+      },
+    },
+  });
+
+  console.log("Movie with screening created", createdMovieWithScreening);
+
   // Don't edit any of the code below this line
   process.exit(0);
 }
