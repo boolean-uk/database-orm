@@ -10,6 +10,7 @@ datasource db {
 
 model Customer {
   id        Int      @id @default(autoincrement())
+  contact   Contact  @relation(fields: [contactId], references: [id])
   name      String
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
