@@ -13,12 +13,15 @@ model Customer {
   name      String
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
+  contact   Contact?
 }
 
 model Contact {
-  id        Int      @id @default(autoincrement())
-  phone     String  
-  email     String
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
+  id          Int      @id @default(autoincrement())
+  phone       String  
+  email       String
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  customer Customer @relation(fields: [customerId], references: [id])
+  customerId  Int      @unique
 }
