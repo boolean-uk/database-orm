@@ -36,10 +36,19 @@ async function seed() {
 
   console.log('Movie created', createMovie)
 
+  const createScreen = await prisma.screen.create({
+    data: {
+      number: 1
+    }
+  })
+
+  console.log('Screen created', createScreen)
+
   const createScreening = await prisma.screening.create({
     data: {
       startsAt: new Date(),
-      movieId: 1
+      movieId: 1,
+      screenId: 1
     }
   })
 
@@ -51,12 +60,30 @@ async function seed() {
       title: 'Movie with relation',
       runtimeMins: 109,
       screenings: {
-        create: [{ startsAt: new Date() }, { startsAt: new Date() }]
+        create: [
+          { startsAt: new Date(), screenId: 1 },
+          { startsAt: new Date(), screenId: 1 }
+        ]
       }
     }
   })
 
   console.log('MovieScreeningRelation created', createMovieScreeningRelation)
+
+  // Screening_screen
+  const createScreeningScreen = await prisma.screen.create({
+    data: {
+      number: 1,
+      screenings: {
+        create: [
+          { startsAt: new Date(), movieId: 1 },
+          { startsAt: new Date(), movieId: 1 }
+        ]
+      }
+    }
+  })
+
+  console.log('ScreeningScreen created', createScreeningScreen)
 
   // Don't edit any of the code below this line
   process.exit(0)
