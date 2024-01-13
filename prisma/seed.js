@@ -38,11 +38,25 @@ async function seed() {
 
   const createScreening = await prisma.screening.create({
     data: {
-      startsAt: new Date()
+      startsAt: new Date(),
+      movieId: 1
     }
   })
 
   console.log('Screening created', createScreening)
+
+  // Movie screening relation
+  const createMovieScreeningRelation = await prisma.movie.create({
+    data: {
+      title: 'Movie with relation',
+      runtimeMins: 109,
+      screenings: {
+        create: [{ startsAt: new Date() }, { startsAt: new Date() }]
+      }
+    }
+  })
+
+  console.log('MovieScreeningRelation created', createMovieScreeningRelation)
 
   // Don't edit any of the code below this line
   process.exit(0)
