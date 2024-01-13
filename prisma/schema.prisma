@@ -1,16 +1,68 @@
-generator client {
-  provider = "prisma-client-js"
-}
-
 datasource db {
-  provider          = "postgresql"
-  url               = env("DATABASE_URL")
-  shadowDatabaseUrl = env("SHADOW_DATABASE_URL")
+  provider = "postgresql"
+  url      = env("postgres://invfwpya:0Qa8r0Fu95A_RochSZoIgYnFUfYJqtse@horton.db.elephantsql.com/invfwpya")
 }
 
 model Customer {
   id        Int      @id @default(autoincrement())
   name      String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  contact   Contact?
+  tickets   Ticket[]
+}
+
+model Ticket {
+  id          Int       @id @default(autoincrement())
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+  customerId  Int
+  customer    Customer  @relation(fields: [customerId], references: [id])
+  screeningId Int
+  screening   Screening @relation(fields: [screeningId], references: [id])
+}
+
+model Contact {
+  id         Int      @id @default(autoincrement())
+  phone      String
+  email      String
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+  customerId Int      @unique
+  customer   Customer @relation(fields: [customerId], references: [id])
+}
+
+model Screen {
+  id         Int         @id @default(autoincrement())
+  createdAt  DateTime    @default(now())
+  updatedAt  DateTime    @updatedAt
+  number     Int
+  screenings Screening[]
+}
+
+model Screening {
+  id        Int      @id @default(autoincrement())
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  startsAt  DateTime
+  tickets   Ticket[]
+  movie     Movie    @relation(fields: [movieId], references: [id])
+  movieId   Int
+  screen    Screen   @relation(fields: [screenId], references: [id])
+  screenId  Int
+}
+
+model Movie {
+  id          Int         @id @default(autoincrement())
+  createdAt   DateTime    @default(now())
+  updatedAt   DateTime    @updatedAt
+  runtimeMins Int
+  title       String
+  screenings  Screening[]
+}
+
+model Test {
+  id        Int      @id @default(autoincrement())
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 }
