@@ -13,11 +13,14 @@ model Customer {
   name      String
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
+  contact   Contact?
 }
 
 model Contact {
   id        Int     @id  @default(autoincrement())
   phone     String
+  customer_id Int   @unique
+  customer  Customer  @relation(fields: [customer_id], references: [id])
   email     String
   createdAt DateTime  @default(now())
   updatedAt DateTime  @updatedAt
