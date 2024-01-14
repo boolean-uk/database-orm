@@ -11,6 +11,10 @@ const generateSortedFields = (fields) => {
 };
 
 const getModelFields = (modelName) => {
+  // console.log('this is the model name', modelName)
+  // const expected = Prisma.dmmf.datamodel.models.filter(model => model.name === modelName)[0].fields;
+  // console.log(expected)
+  // return expected
   return Prisma.dmmf.datamodel.models.filter(model => model.name === modelName)[0].fields;
 };
 
