@@ -25,3 +25,18 @@ model Contact {
   createdAt DateTime  @default(now())
   updatedAt DateTime  @updatedAt
 }
+
+model Movie {
+  id  Int @id @default(autoincrement())
+  title String  @unique
+  runtimeMins Int
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
+}
+
+model Screening {
+  id  Int @id @default(autoincrement())
+  startsAt  DateTime
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
+}
