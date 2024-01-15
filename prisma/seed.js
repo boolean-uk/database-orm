@@ -26,7 +26,7 @@ async function seed() {
 
   console.log("Contact created", createdContact);
 
-  const createdMovie = await prisma.movie.createMany({
+  const movie = await prisma.movie.createMany({
     data: [
       {
         title: "The Lion King",
@@ -62,6 +62,19 @@ async function seed() {
       },
     },
   });
+  const createdTicket = await prisma.ticket.create({
+    customer: {
+      connect: {
+        id: 1,
+      },
+    },
+    screening: {
+      connect: {
+        id: 1,
+      },
+    },
+  });
+  console.log("createdTicket", createdTicket);
   // Don't edit any of the code below this line
   process.exit(0);
 }
