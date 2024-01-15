@@ -25,6 +25,10 @@ async function seed() {
 
     console.log('new contact',createContact)
 
+    const createMovie = await prisma.movie.create({
+        
+    })
+
 
 
     // Don't edit any of the code below this line
