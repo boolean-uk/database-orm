@@ -29,3 +29,5 @@ model Contact {
   customerId    Int        @unique
   customer      Customer   @relation(fields: [customerId], references: [id])
 }
+
+
