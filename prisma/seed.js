@@ -118,6 +118,7 @@ async function seed() {
   })
 
   console.log(ticket)
+
   // Don't edit any of the code below this line
   process.exit(0);
 }
