@@ -26,6 +26,27 @@ async function seed() {
 
   console.log("Contact created", createdContact);
 
+  const createdMovie = await prisma.movie.createMany({
+    data: [
+      {
+        title: "The Lion King",
+        runtimeMins: 225,
+      },
+      {
+        title: "The Passion",
+        runtimeMins: 300,
+      },
+    ],
+  });
+
+  const countOfMovie = createdMovie.length;
+
+  const createdScreen = await prisma.screening.createMany({
+    data: Array.from({ length: countOfMovie }, (_, index) => ({
+      startsAt: { select: { now: true } },
+    })),
+  });
+
   // Don't edit any of the code below this line
   process.exit(0);
 }
