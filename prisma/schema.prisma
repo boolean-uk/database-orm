@@ -1,5 +1,6 @@
 generator client {
   provider = "prisma-client-js"
+  engineType = "binary"
 
 }
 
@@ -14,4 +15,17 @@ model Customer {
   name      String
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
+   contact   Contact?
+ 
+}
+
+
+model Contact {
+  id            Int        @id @default(autoincrement())
+  phone         String
+  email         String
+  createdAt     DateTime   @default(now())
+  updatedAt     DateTime   @updatedAt
+  customerId    Int        @unique
+  customer      Customer   @relation(fields: [customerId], references: [id])
 }
