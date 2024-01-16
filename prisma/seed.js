@@ -34,6 +34,18 @@ async function seed() {
 
     console.log(createdMovie)
 
+    const createdScreening = await prisma.screening.create({
+        data: {
+            startsAt: new Date(),
+            movie: {
+                create: {
+                    title: 'Lion King',
+                    runtimeMins: 120
+                }
+            }
+        }
+    })
+
 
 
     // Don't edit any of the code below this line
