@@ -49,7 +49,7 @@ async function seed() {
           id: 1,
         },
       },
-      screening: {
+      screenings: {
         connect: {
           id: 1,
         },
