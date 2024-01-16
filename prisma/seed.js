@@ -34,21 +34,37 @@ async function seed() {
 
     console.log(createdMovie)
 
-    const createdScreening = await prisma.screening.create({
-        data: {
-            startsAt: new Date(),
-            movieId: 1,
-            screenId: 1 
-        }
-    })
-    console.log(createdScreening)
-
     const createdScreen = await prisma.screen.create({
         data: {
             number: 1
         }
     }) 
     console.log(createdScreen)
+
+    const createdScreening = await prisma.screening.create({
+        data: {
+            startsAt: '2024-01-14T11:19:59Z',
+            movie: {
+                connect: {
+                    id: createdMovie.id
+                }
+            }, 
+            screen: {
+                connect: {
+                    id:createdScreen.id
+                }
+            }
+        }
+    })
+    console.log(createdScreening)
+
+
+    const createdTicket = await prisma.ticket.create({
+        data: {
+            customerId: 1,
+            screeningId: 1
+        }
+    })
 
 
 
