@@ -13,6 +13,7 @@ model Customer {
   name      String
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
+  contact   Contact?
 }
 
 model Contact {
@@ -21,4 +22,6 @@ model Contact {
    email          String 
    createdAt     DateTime     @default(now())
    updatedAt     DateTime     @updatedAt
+   customerId    Int          @unique
+   customer      Customer     @relation(fields: [customerId], references: [id])
 }
