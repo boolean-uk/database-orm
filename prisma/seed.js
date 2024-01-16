@@ -25,6 +25,15 @@ async function seed() {
 
     console.log('contact created',createdContact)
 
+    const createdMovie = await prisma.movie.create({
+        data: {
+            title: 'Gladiator',
+            runtimeMins: 155
+        }
+    })
+
+    console.log(createdMovie)
+
 
 
     // Don't edit any of the code below this line
