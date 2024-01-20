@@ -14,7 +14,7 @@ model Customer {
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
   contact   Contact?
-  ticket    Ticket[]
+  tickets    Ticket[]
 }
 model Contact {
   id        Int     @id @default(autoincrement())
@@ -22,16 +22,16 @@ model Contact {
   email     String
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
-  customer_id  Int       @unique
-  customer  Customer  @relation(fields: [customer_id], references: [id])
+  customerId  Int       @unique
+  customer  Customer  @relation(fields: [customerId], references: [id])
 }
 model Movie {
   id          Int     @id @default(autoincrement())
   title       String
-  runTimeMins Int
+  runtimeMins Int
   createdAt   DateTime @default(now())
   updatedAt   DateTime @updatedAt
-  screening   Screening[]
+  screenings  Screening[]
 
 }
 model Screening {
@@ -39,11 +39,11 @@ model Screening {
   startsAt    DateTime
   createdAt   DateTime @default(now())
   updatedAt   DateTime @updatedAt
-  movie_id    Int      @unique
-  movie       Movie    @relation(fields: [movie_id], references: [id])
-  screen_id   Int       @unique
-  screen      Screen    @relation(fields: [screen_id], references: [id])
-  ticket      Ticket[]
+  movieId    Int      
+  movie       Movie    @relation(fields: [movieId], references: [id])
+  screenId   Int       
+  screen      Screen    @relation(fields: [screenId], references: [id])
+  tickets      Ticket[]
  
 }
 model Screen {
@@ -51,15 +51,15 @@ model Screen {
   number          Int
   createdAt       DateTime  @default(now())
   updatedAt       DateTime  @updatedAt
-  screening       Screening[]
+  screenings      Screening[]
  
 }
 model Ticket {
   id              Int   @id  @default(autoincrement())
   createdAt       DateTime  @default(now())
   updatedAt       DateTime  @updatedAt
-  customer_id     Int       @unique
-  customer        Customer  @relation(fields: [customer_id], references: [id])
-  screening_id     Int      
-  screening        Screening  @relation(fields: [screening_id], references: [id])
+  customerId     Int       
+  customer        Customer  @relation(fields: [customerId], references: [id])
+  screeningId     Int      
+  screening      Screening  @relation(fields: [screeningId], references: [id])
 }

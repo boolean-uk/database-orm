@@ -24,7 +24,7 @@ async function seed() {
   const createdMovie = await prisma.movie.create({
     data: {
       title: "beauty and the beast",
-      runTimeMins: 2,
+      runtimeMins: 2,
     },
   });
   console.log(createdMovie);
