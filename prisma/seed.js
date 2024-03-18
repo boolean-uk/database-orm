@@ -39,7 +39,18 @@ async function seed() {
                     title: 'Toy Story 2',
                     runtimeMins: 720
                 }
+            },
+            screen: {
+                create: {
+                    number: 1
+                }
             }
+        }
+    })
+
+    const createdScreen = await prisma.screen.create({
+        data: {
+            number: 2,
         }
     })
 
