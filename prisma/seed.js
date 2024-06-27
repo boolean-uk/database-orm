@@ -22,7 +22,12 @@ async function seed() {
             runtimeMins: 120,
             screenings: {
                 create: {
-                    startsAt: new Date()
+                    startsAt: new Date(),
+                    screen: {
+                        create: {
+                            number: 4,
+                        }
+                    }
                 }
             }
         }

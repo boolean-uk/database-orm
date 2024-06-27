@@ -41,5 +41,15 @@ model Screening {
   createdAt   DateTime @default(now())
   updatedAt   DateTime @updatedAt
   movie       Movie    @relation(fields: [movieId], references: [id])
-  movieId     Int      
+  movieId     Int
+  screen      Screen   @relation(fields: [screenId], references: [id])
+  screenId    Int      
+}
+
+model Screen {
+  id          Int           @id @default(autoincrement())
+  number      Int
+  createdAt   DateTime      @default(now())
+  updatedAt   DateTime      @updatedAt
+  screenings   Screening[]
 }
