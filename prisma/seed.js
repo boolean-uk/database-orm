@@ -16,6 +16,12 @@ async function seed() {
 
     console.log('Customer created', createdCustomer);
 
+    const createdScreen =  await prisma.screen.create({
+        data: {
+            number: 4
+        }
+    })
+
     const createdMovie = await prisma.movie.create({
         data: {
             title: 'something',
@@ -23,17 +29,34 @@ async function seed() {
             screenings: {
                 create: {
                     startsAt: new Date(),
-                    screen: {
-                        create: {
-                            number: 4,
-                        }
-                    }
+                    screenId: createdScreen.id
                 }
             }
         }
     });
 
     console.log('Movie created', createdMovie);
+
+    const createdScreening = await prisma.screening.create({
+        data: {
+            movie: {
+                connect:createdMovie
+            },
+            startsAt: new Date(),
+            screen: {
+                connect: createdScreen
+            }
+        }
+    })
+
+    const createdTicket = await prisma.ticket.create({
+        data: {
+            customerId: createdCustomer.id,
+            screeningId: createdScreening.id 
+        }
+    })
+
+    console.log('Ticket created', createdTicket);
 
     process.exit(0);
 }
