@@ -1,28 +1,42 @@
 const { PrismaClient } = require('@prisma/client');
+const { title } = require('process');
 const prisma = new PrismaClient();
 
 async function seed() {
-    const createdCustomer = await prisma.customer.create({
-        data: {
-            name: 'Alice'
-        }
-    });
+    // const createdCustomer = await prisma.customer.create({
+    //     data: {
+    //         name: 'Alice'
+    //     }
+    // });
 
-    console.log('Customer created', createdCustomer);
+    // console.log('Customer created', createdCustomer);
 
-    // Add your code here
-    const createdContact = await prisma.contact.create({
+    // // Add your code here
+    // const createdContact = await prisma.contact.create({
+    //     data: {
+    //         phone: '+447097851752',
+    //         email: 'alice_cooper@rocknroll.org',
+    //         customer: {
+    //             create: {
+    //                 name: createdCustomer.name
+    //             }
+    //         }
+    //     }
+    // })
+
+    const createdMovie = await prisma.movie.create({
         data: {
-            phone: '+447097851752',
-            email: 'alice_cooper@rocknroll.org',
-            customer: {
-                create: {
-                    name: createdCustomer.name
-                }
-            }
+            title: 'Eyes Wide Shut',
+            runtimeMins: 159
         }
     })
+    
 
+    const createdScreening = await prisma.screening.create({
+        data: {
+            startsAt: new Date('June 25, 2024 20:00:00')
+        }
+    })
 
 
 
