@@ -2,10 +2,12 @@ const { PrismaClient } = require('@prisma/client');
 const prisma = new PrismaClient();
 
 async function seed() {
-    const createdCustomer = await prisma.customer.create({
-        data: {
+    const createdCustomer = await prisma.customer.createMany({
+        data: [{
             name: 'Alice'
-        }
+        }, {
+            name: 'John'
+        }]
     });
 
     console.log('Customer created', createdCustomer);
