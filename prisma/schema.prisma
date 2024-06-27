@@ -5,7 +5,7 @@ generator client {
 datasource db {
   provider          = "postgresql"
   url               = env("DATABASE_URL")
-  // shadowDatabaseUrl = env("SHADOW_DATABASE_URL")
+  shadowDatabaseUrl = env("SHADOW_DATABASE_URL")
 }
 
 model Customer {
@@ -14,7 +14,7 @@ model Customer {
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
   contact   Contact?
-  tickets    Ticket[]
+  tickets   Ticket[]
 }
 
 model Contact {
@@ -33,7 +33,7 @@ model Movie {
   runtimeMins Int
   createdAt   DateTime      @default(now())
   updatedAt   DateTime      @updatedAt
-  screenings   Screening[]
+  screenings  Screening[]
 }
 
 model Screening {
@@ -53,7 +53,7 @@ model Screen {
   number      Int
   createdAt   DateTime      @default(now())
   updatedAt   DateTime      @updatedAt
-  screenings   Screening[]
+  screenings  Screening[]
 }
 
 model Ticket {
