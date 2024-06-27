@@ -9,11 +9,12 @@ datasource db {
 }
 
 model Customer {
-  id        Int      @id @default(autoincrement())
-  name      String
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
-  contact   Contact?
+  id         Int      @id @default(autoincrement())
+  name       String
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+  contact    Contact?
+  tickets    Ticket[]
 }
 
 model Contact {
@@ -36,14 +37,15 @@ model Movie {
 }
 
 model Screening {
-  id        Int      @id @default(autoincrement())
-  movieId   Int
-  screenId  Int
-  startsAt  DateTime
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
-  movie     Movie    @relation(fields: [movieId], references: [id])
-  screen    Screen   @relation(fields: [screenId], references: [id])
+  id         Int      @id @default(autoincrement())
+  movieId    Int
+  screenId   Int
+  startsAt   DateTime
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+  movie      Movie    @relation(fields: [movieId], references: [id])
+  screen     Screen   @relation(fields: [screenId], references: [id])
+  tickets    Ticket[]
 
   @@unique([id, screenId])
 }
@@ -54,4 +56,14 @@ model Screen {
   createdAt  DateTime  @default(now())
   updatedAt  DateTime  @updatedAt
   screenings Screening[]
+}
+
+model Ticket {
+  id          Int        @id @default(autoincrement())
+  createdAt   DateTime   @default(now())
+  updatedAt   DateTime   @updatedAt
+  customerId  Int
+  screeningId Int
+  customer    Customer   @relation(fields: [customerId], references: [id]) 
+  screening   Screening  @relation(fields: [screeningId], references: [id])
 }
