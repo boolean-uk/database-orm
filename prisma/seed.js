@@ -15,7 +15,7 @@ async function seed() {
         data: {
             email: 'example@email.com',
             phone: '123456789',
-            customerId: 1
+            customerId: createdCustomer.id
         }
     });
 
