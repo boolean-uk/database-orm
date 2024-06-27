@@ -19,23 +19,36 @@ model Contact {
   id         Int      @id @default(autoincrement())
   phone      String
   email      String
-  Customer   Customer @relation(fields: [customerId], references: [id])
+  customer   Customer @relation(fields: [customerId], references: [id])
   customerId Int      @unique
   createdAt  DateTime @default(now())
   updatedAt  DateTime @updatedAt
 }
 
 model Movie {
-  id        Int      @id @default(autoincrement())
-  title     String
+  id          Int         @id @default(autoincrement())
+  title       String
   runtimeMins Int
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
+  screenings  Screening[]
+  createdAt   DateTime    @default(now())
+  updatedAt   DateTime    @updatedAt
 }
 
 model Screening {
   id        Int      @id @default(autoincrement())
   startsAt  DateTime
+  movie     Movie    @relation(fields: [movieId], references: [id])
+  screen    Screen   @relation(fields: [screenId], references: [id])
+  movieId   Int
+  screenId  Int
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
+}
+
+model Screen {
+  id         Int         @id @default(autoincrement())
+  number     Int
+  screenings Screening[]
+  createdAt  DateTime    @default(now())
+  updatedAt  DateTime    @updatedAt
 }
