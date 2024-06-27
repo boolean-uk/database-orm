@@ -1,4 +1,5 @@
 const { PrismaClient } = require('@prisma/client');
+const { connect } = require('http2');
 const { title } = require('process');
 const prisma = new PrismaClient();
 
@@ -34,7 +35,13 @@ async function seed() {
 
     const createdScreening = await prisma.screening.create({
         data: {
-            startsAt: new Date('June 25, 2024 20:00:00')
+            startsAt: new Date('June 25, 2024 22:00:00'),
+            movie:  {
+                connect: {
+                    title: createdMovie.title,
+                    runtimeMins: createdMovie.runtimeMins
+                }
+            }
         }
     })
 
