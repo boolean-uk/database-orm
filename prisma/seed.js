@@ -4,26 +4,23 @@ const { title } = require('process');
 const prisma = new PrismaClient();
 
 async function seed() {
-    // const createdCustomer = await prisma.customer.create({
-    //     data: {
-    //         name: 'Alice'
-    //     }
-    // });
+    const createdCustomer = await prisma.customer.create({
+        data: {
+            name: 'Alice'
+        }
+    });
 
-    // console.log('Customer created', createdCustomer);
-
-    // // Add your code here
-    // const createdContact = await prisma.contact.create({
-    //     data: {
-    //         phone: '+447097851752',
-    //         email: 'alice_cooper@rocknroll.org',
-    //         customer: {
-    //             create: {
-    //                 name: createdCustomer.name
-    //             }
-    //         }
-    //     }
-    // })
+    const createdContact = await prisma.contact.create({
+        data: {
+            phone: '+447097851752',
+            email: 'alice_cooper@rocknroll.org',
+            customer: {
+                create: {
+                    name: createdCustomer.name
+                }
+            }
+        }
+    })
 
     const createdMovie = await prisma.movie.create({
         data: {

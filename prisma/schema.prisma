@@ -14,13 +14,13 @@ model Customer {
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
   contact   Contact?
-  ticket    Ticket[]
+  tickets    Ticket[]
 }
 
 model Contact {
   id        Int      @id @default(autoincrement())
-  customer  Customer @relation(fields: [customerID], references: [id])
-  customerID Int     @unique
+  customer  Customer @relation(fields: [customerId], references: [id])
+  customerId Int     @unique
   phone     String
   email     String
   createdAt DateTime @default(now())
@@ -38,10 +38,10 @@ model Movie {
 
 model Screening {
   id        Int     @id @default(autoincrement())
-  movie     Movie   @relation(fields: [movieID], references: [id])
-  movieID   Int     @unique
-  screen    Screen? @relation(fields: [screenID], references: [id])
-  screenID  Int?    @unique
+  movie     Movie   @relation(fields: [movieId], references: [id])
+  movieId   Int     
+  screen    Screen @relation(fields: [screenId], references: [id])
+  screenId  Int    
   startsAt  DateTime
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
@@ -50,7 +50,7 @@ model Screening {
 
 model Screen {
   id        Int     @id @default(autoincrement())
-  number    Int
+  number    Int     
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
   screenings Screening[]
@@ -58,8 +58,10 @@ model Screen {
 
 model Ticket {
   id        Int     @id @default(autoincrement())
-  customer  Customer? @relation(fields: [customerID], references: [id])
-  screening Screening? @relation(fields: [screeningID], references: [id])
-  screeningID Int?  
-  customerID  Int?  
+  customer  Customer @relation(fields: [customerId], references: [id])
+  screening Screening @relation(fields: [screeningId], references: [id])
+  screeningId Int  
+  customerId  Int   
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt  
 }
