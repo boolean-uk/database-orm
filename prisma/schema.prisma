@@ -38,8 +38,20 @@ model Movie {
 model Screening {
   id        Int      @id @default(autoincrement())
   movieId   Int
+  screenId  Int
   startsAt  DateTime
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
-  movie     Movie @relation(fields: [movieId], references: [id])
+  movie     Movie    @relation(fields: [movieId], references: [id])
+  screen    Screen   @relation(fields: [screenId], references: [id])
+
+  @@unique([id, screenId])
+}
+
+model Screen {
+  id         Int       @id @default(autoincrement())
+  number     Int
+  createdAt  DateTime  @default(now())
+  updatedAt  DateTime  @updatedAt
+  screenings Screening[]
 }
