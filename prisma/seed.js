@@ -24,7 +24,12 @@ async function seed() {
             runtimeMins : 120,
             screening : {
                 create : {
-                    startsAt : new Date('2024-07-10T10:00:00Z')
+                    startsAt : new Date('2024-07-10T10:00:00Z'),
+                    screen : {
+                        create : {
+                            number : 1
+                        }
+                    }
                 }
             }
         },
