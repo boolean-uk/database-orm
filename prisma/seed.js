@@ -18,18 +18,23 @@ async function seed() {
         } 
     })
 
+    const createMovie = await prisma.movie.create({
+        data :{
+            title : 'The Matrix',
+            runtimeMins : 120
+        }
+    })
+
+    const createScreening = await prisma.screening.create({
+        data : {
+            startsAt : new Date('2024-07-10T10:00:00Z')
+        }
+    })
     
 
-    console.log('Customer created', createdCustomer);
-
-    // Add your code here
-    // const createdContact = await prisma.contact.create({
-    //     data: {
-    //         phone : '123456',
-    //         email : 'fBagdeli@gmail.com'
-    //     }
-    // })
-
+    console.log('Customer created', createdCustomer)
+    console.log('movie created', createMovie)
+    console.log('screening created', createScreening)
 
 
     // Don't edit any of the code below this line
