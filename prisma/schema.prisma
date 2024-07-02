@@ -12,38 +12,38 @@ model Customer {
   id        Int      @id @default(autoincrement())
   name      String
   contact   Contact?
-  ticketScreening Screening[]
+  tickets   Ticket[]
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 }
 
 model Contact {
   id            Int       @id @default(autoincrement())
-  phone         String
+  customer      Customer  @relation(fields: [customerId], references: [id])
   email         String
-  customerId    Int       @unique
-  customer      Customer  @relation(fields: [customerId], references: [id]) 
-  createAt      DateTime  @default(now())
-  updateAt      DateTime  @updatedAt
+  customerId    Int       @unique 
+  phone         String
+  createdAt      DateTime  @default(now())
+  updatedAt      DateTime  @updatedAt
 }
 
 model Movie {
   id            Int       @id @default(autoincrement())
   title         String
   runtimeMins   Int
-  screening     Screening?
+  screenings     Screening[]
   createdAt     DateTime  @default(now())
   updatedAt     DateTime  @updatedAt
 }
 
 model Screening {
   id            Int       @id @default(autoincrement())
-  movieId       Int       @unique
+  movieId       Int       
   movie         Movie     @relation(fields: [movieId], references: [id])
-  screenId      Int       @unique
-  screen        Screen    @relation(fields: [screenId], references: [id])
-  customerTicket Customer[]
   startsAt      DateTime
+  screenId      Int       
+  screen        Screen    @relation(fields: [screenId], references: [id])
+  tickets       Ticket[]
   createdAt     DateTime  @default(now())
   updatedAt     DateTime  @updatedAt
 }
@@ -51,8 +51,17 @@ model Screening {
 model Screen {
   id            Int       @id @default(autoincrement())
   number        Int
-  screening     Screening?
-
+  screenings    Screening[]
   createdAt     DateTime  @default(now())
   updatedAt     DateTime  @updatedAt
+}
+
+model Ticket {
+  id            Int        @id @default(autoincrement())
+  customerId    Int
+  customer    Customer   @relation(fields: [customerId], references: [id])
+  screeningId   Int
+  screening    Screening  @relation(fields: [screeningId], references: [id])
+  createdAt     DateTime   @default(now())
+  updatedAt     DateTime   @updatedAt
 }

@@ -22,26 +22,28 @@ async function seed() {
         data :{
             title : 'The Matrix',
             runtimeMins : 120,
-            screening : {
+            screenings : {
                 create : {
-                    startsAt : new Date('2024-07-10T10:00:00Z'),
+                    startsAt : new Date (),
                     screen : {
                         create : {
                             number : 1
-                        }
-                    },
-                    customerTicket : {
-                        connect : {
-                            id : createdCustomer.id
                         }
                     }
                 }
             }
         },
         include : {
-            screening : true
+            screenings : true
         }
     })
+
+    
+                    // customerTicket : {
+                    //     connect : {
+                    //         id : createdCustomer.id
+                    //     }
+                    // }
 
     
     
