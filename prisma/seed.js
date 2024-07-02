@@ -29,6 +29,11 @@ async function seed() {
                         create : {
                             number : 1
                         }
+                    },
+                    customerTicket : {
+                        connect : {
+                            id : createdCustomer.id
+                        }
                     }
                 }
             }
