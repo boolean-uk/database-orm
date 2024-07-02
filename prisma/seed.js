@@ -21,21 +21,23 @@ async function seed() {
     const createMovie = await prisma.movie.create({
         data :{
             title : 'The Matrix',
-            runtimeMins : 120
+            runtimeMins : 120,
+            screening : {
+                create : {
+                    startsAt : new Date('2024-07-10T10:00:00Z')
+                }
+            }
+        },
+        include : {
+            screening : true
         }
     })
 
-    const createScreening = await prisma.screening.create({
-        data : {
-            startsAt : new Date('2024-07-10T10:00:00Z')
-        }
-    })
+    
     
 
     console.log('Customer created', createdCustomer)
     console.log('movie created', createMovie)
-    console.log('screening created', createScreening)
-
 
     // Don't edit any of the code below this line
     process.exit(0);
