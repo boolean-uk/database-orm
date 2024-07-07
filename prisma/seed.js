@@ -16,7 +16,20 @@ async function seed() {
         }
 	})
 
-	console.log("Customer created", createdCustomer)
+    console.log("Customer created", createdCustomer)
+    
+    const createMovie = await prisma.movie.create({
+        data: {
+            title: 'The sound of music',
+            runtimeMins: 3456
+        }
+    })
+
+    const createScreening = await prisma.screening.create({
+			data: {
+				startsAt: "2024-07-09T21:00:00.000Z",
+			},
+		})
 
 	// Add your code here
 
