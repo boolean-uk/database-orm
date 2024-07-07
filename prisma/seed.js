@@ -5,31 +5,35 @@ async function seed() {
 	const createdCustomer = await prisma.customer.create({
 		data: {
 			name: "Alice",
-            contact: {
-                create: {
-                    phone: "1234567",
-                    email: "alice@alice.al",
-                },
-            },
-        }, include: {
-            contact: true
-        }
+			contact: {
+				create: {
+					phone: "1234567",
+					email: "alice@alice.al",
+				},
+			},
+		},
+		include: {
+			contact: true,
+		},
 	})
 
-    console.log("Customer created", createdCustomer)
-    
-    const createMovie = await prisma.movie.create({
-        data: {
-            title: 'The sound of music',
-            runtimeMins: 3456
-        }
-    })
+	console.log("Customer created", createdCustomer)
 
-    const createScreening = await prisma.screening.create({
-			data: {
-				startsAt: "2024-07-09T21:00:00.000Z",
+	const createMovie = await prisma.movie.create({
+		data: {
+			title: "The sound of music",
+			runtimeMins: 3456,
+		},
+	})
+
+	const createScreening = await prisma.screening.create({
+		data: {
+            startsAt: "2024-07-09T21:00:00.000Z",
+			movie: {
+				connect: createMovie
 			},
-		})
+		},
+	})
 
 	// Add your code here
 
