@@ -14,6 +14,7 @@ async function seed() {
 		},
 		include: {
 			contact: true,
+			Ticket:true
 		},
 	})
 
@@ -23,7 +24,7 @@ async function seed() {
 		data: {
 			title: "The sound of music",
 			runtimeMins: 3456,
-		},
+		}
 	})
 
     console.log("Movie", createMovie)
@@ -36,25 +37,15 @@ async function seed() {
 	const createScreening = await prisma.screening.create({
 		data: {
 			startsAt: "2024-07-11T21:00:00.000Z",
-			movie: {
-				connect: createMovie
-			},
-			screen: {
-				connect: {
-					id: createScreen.id,
-				},
-			},
+			movieId: 1,
+			screenId:1
 		},
 	})
 
 	const createTicket = await prisma.ticket.create({
 		data: {
-			customer: {
-				connect: createdCustomer,
-			},
-			screening: {
-				connect: createScreening,
-			},
+			customerId: 1,
+			screenId: 1
 		},
     })
     
