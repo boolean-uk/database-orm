@@ -21,6 +21,15 @@ async function seed() {
 
     console.log('customer profile created', profile)
 
+    const cinemaScreen = await prisma.screen.create({
+        data: {
+            number: 12
+        },
+        data: {
+            number: 2
+        }
+    })
+
     const movieBooked = await prisma.movie.create({
         data: {
             title: 'The Revenant',
