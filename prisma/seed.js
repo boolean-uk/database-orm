@@ -31,9 +31,14 @@ async function seed() {
     data: {
       title: "Shrek",
       runtimeMins: 90,
-      screening: {
+      screenings: {
         create: {
           startsAt: "2024-07-07T11:30:00Z",
+          screen: {
+            create: {
+              number: 4,
+            },
+          },
         },
       },
     },
