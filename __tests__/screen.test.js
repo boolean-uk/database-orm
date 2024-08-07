@@ -7,7 +7,6 @@ const {
 } = require('./helpers');
 
 const SCREEN = 'Screen';
-
 describe('The Screen Model', () => {
   describe('Requirement 5', () => {
     it('has all of the necessary fields (columns)', () => {
