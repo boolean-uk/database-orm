@@ -2,7 +2,6 @@ const { PrismaClient } = require('@prisma/client')
 const prisma = new PrismaClient()
 
 async function seed() {
-    // Create a customer and its contact information
     const createdCustomer = await prisma.customer.create({
         data: {
             name: 'Alice',
@@ -15,14 +14,12 @@ async function seed() {
         },
     })
 
-    // Create a screen
     const createdScreen = await prisma.screen.create({
         data: {
             number: 1,
         },
     })
 
-    // Create a movie
     const createdMovie = await prisma.movie.create({
         data: {
             title: 'Parasite',
@@ -30,7 +27,6 @@ async function seed() {
         },
     })
 
-    // Create a screening for the movie and screen
     const createdScreening = await prisma.screening.create({
         data: {
             movie: {
@@ -43,7 +39,6 @@ async function seed() {
         },
     })
 
-    // Create a ticket for the customer and screening
     const createdTicket = await prisma.ticket.create({
         data: {
             customer: {
