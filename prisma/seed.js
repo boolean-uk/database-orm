@@ -12,6 +12,14 @@ async function seed() {
 
     // Add your code here
 
+    const createdContact = await prisma.contact.create({
+      data: {
+        phone: '000-111-222-333',
+        email: 'alice123@gmail.com',
+      },
+    });
+
+    console.log("Contact created", createdContact);
 
 
 
